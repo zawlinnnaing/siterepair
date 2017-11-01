@@ -25,3 +25,7 @@ Route::get('/departments/mech', 'HomeController@mech');
 Route::get('/departments/mecha', 'HomeController@mecha');
 Route::get('/departments/myan', 'HomeController@myan');
 
+//api routes
+Route::get('/postsapi','postsController@index');
+
+
