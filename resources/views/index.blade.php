@@ -3,7 +3,7 @@
 <head>
 	<title>Mandalay Technological University</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="{{ asset('css/montserrat.css') }}">
+ 	<link rel="stylesheet" type="text/css" href="{{ asset('css/montserrat.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/index.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
 </head>
@@ -132,7 +132,7 @@
 	        </ul>
       </section>
 	</nav>
-	<script type="text/javascript" src="{{ asset('js/slideout.min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('js/slideout.js') }}"></script>
 	<script>
       var slideout = new Slideout({
         'panel': document.getElementById('panel'),
