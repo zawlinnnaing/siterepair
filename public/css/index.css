@@ -17,6 +17,16 @@
     background-size: cover;
     height: 720px;
 }
+#landing_about{
+     width: 100%;
+    display: block;
+    color: #eee;
+    background-image: url('/../mtu_sketch.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 720px;
+}
 #landing_civil .title{
     color: #eee;
 }
@@ -71,6 +81,7 @@ ul.nav-list>li {
 
 .nav-list>li a {
     padding: 1em 1em;
+    color: white;
 }
 
 .menu-section-list {

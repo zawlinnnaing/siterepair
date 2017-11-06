@@ -1,17 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Mandalay Technological University</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="{{ asset('css/montserrat.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('css/index.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
-</head>
-<body>
-	<main id="panel">
-	<div id="landing">
+@extends('layout')
+@section('content')
+<!-- 	<main id="panel">
+ -->	<div id="landing">
 		<div class="layer">
-			<div class="header">
+<!-- 			<div class="header">
 			<div id="header_logo"><img src="/mtu.png" ></div>
 			<h3 class="title">Mandalay <br>Technological <br>University</h3>
 			<ul class="is-hidden-mobile nav-list">
@@ -22,10 +14,11 @@
 				<li><a href="/">Departments</a></li>
 			</ul>
 			<button class="toggle-button is-hidden-desktop is-hidden-tablet"><img id="button_image" src="/menu2.png"></button>
-			</div>
+			</div> -->
+			@include('header')
 			<div class="detail_button"><h5>Read More</h5></div>
 		</div>
-	</div>
+		</div>
 	<div class="events column is-10">
 		<h4>Headline Events</h4>
 		<div class="event columns">
@@ -116,8 +109,9 @@
 			<div class="content"><p>The grads had been out of school for about a year and they were each making their foray into the quote-unquote “real world”</p></div>
 		</div>
 	</div>
-	</main>
-	<div class="footer">
+	@endsection
+<!-- 	</main>
+ -->	<!-- <div class="footer">
 		
 	</div>
 	<nav id="menu" class="menu">
@@ -131,7 +125,7 @@
 			<li><a href="/">Departments</a></li>
 	        </ul>
       </section>
-	</nav>
+	</nav> --><!-- 
 	<script type="text/javascript" src="{{ asset('js/slideout.min.js') }}"></script>
 	<script>
       var slideout = new Slideout({
@@ -148,4 +142,4 @@
       });
     </script>
 </body>
-</html>
+</html> -->
