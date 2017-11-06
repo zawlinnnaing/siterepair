@@ -31,7 +31,7 @@
 	        </ul>
       </section>
 	</nav>
-		<script type="text/javascript" src="{{ asset('js/slideout.min.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('js/slideout.js') }}"></script>
 	<script>
       var slideout = new Slideout({
         'panel': document.getElementById('panel'),

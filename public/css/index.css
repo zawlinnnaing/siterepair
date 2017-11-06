@@ -34,13 +34,14 @@
     border: 2px solid #eee;
 }
 #landing_civil>.detail_button:hover{
-    /*color: #eee !important;*/
+    color: #eee !important;
 }
 
 .layer {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    align-items: center;
     background-color: rgba(100, 100, 100, 0.1);
     z-index: 3;
     width: 100%;
@@ -339,3 +340,53 @@ li>a {
 }
 
 /*footer*/
+
+/* departments */
+
+.brief_history{
+    text-align: center;
+}    
+
+.mission_vision .columns{
+    margin: 0 auto !important;
+}
+.mission_vision span{
+    float: left;
+    font-size: 90px;
+    line-height: 70px;
+}
+.mission_vision span.float_right{
+    float: right;
+}
+.mission_vision h4{
+    margin: 0;
+}
+.mission_vision div.align_right{
+    background: #424242;
+    color : #F5F5F5;
+}
+.mission_vision h4.align_right{
+    margin: 0;
+    direction: rtl;
+    unicode-bidi: bidi-override;
+}
+.mission_vision p{
+    margin-top: 0;
+}
+.mission_vision div.bg_black{
+    background: #424242;
+}
+
+.mission_vision .is-2{
+    padding: 0 !important;
+}
+.mission_vision .content{
+    padding: 20px !important;
+}
+.mission_vision .align_right{
+    text-align: right;
+}
+/* .mission_vision h1{
+    text-align: center;
+} */
+/* departments */
