@@ -98,3 +98,13 @@
 		</div>
 	</div>
 	@endsection
+	@section('style')
+	<style type="text/css">
+		.nav-list li a {
+			color: black !important;
+		}
+		.date_div{
+			padding: 0;
+		}
+	</style>
+	@endsection
