@@ -1,21 +1,7 @@
 @extends('layout')
 @section('content')
 <!-- 	<main id="panel">
- -->	<div id="landing"><!-- 
-=======
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Mandalay Technological University</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
- 	<link rel="stylesheet" type="text/css" href="{{ asset('css/montserrat.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('css/index.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
-</head>
-<body>
-	<main id="panel">
-	<div id="landing">
- -->
+ -->	<div id="landing">
 		<div class="layer">
 			@include('header')
 			<div class="detail_button"><h5>Read More</h5></div>

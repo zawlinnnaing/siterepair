@@ -132,6 +132,10 @@
             </div>
         </div>
     </div>
+
+    <div class="statistic columns">
+    	<div
+    </div>
 </div>
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3700.042116898256!2d96.18896391437578!3d21.971346585495446!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30cb6e538bf6418b%3A0x9c9718b6ec4e04f8!2sMandalay+Technological+University!5e0!3m2!1sen!2smm!4v1500798656199" class="column is-12" height="450" frameborder="0" style="border:0; padding: 0; margin: auto;" allowfullscreen></iframe>
 @endsection('content') @section('style')
