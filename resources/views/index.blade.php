@@ -20,7 +20,9 @@
 			<p>One summer afternoon, a group of recent college graduates decided to visit their favorite professor at his home. The grads
 				had been out of school for about a year and they were each making their foray into the quote-unquote “real world” and
 				dealing with all of the frustrations and confusion…</p>
-			<div id="readmore_headlinebutton">Read More</div>
+			<div id="readmore_headlinebutton">
+				<h5>Read More</h5>
+			</div>
 		</div>
 	</div>
 </div>
@@ -142,6 +144,11 @@
 </div>
 @endsection @section('style')
 <style>
+	.nav-list>li a {
+		padding: 1em 1em;
+		color: black;
+	}
+
 	div.article {
 		margin: 2em 0 !important;
 	}
@@ -195,7 +202,7 @@
 		text-align: center;
 	}
 
-	#morearticles_button>h5 {
+	#morearticles_button>h5,#readmore_headlinebutton>h5 {
 		border: 2px solid black;
 		display: inline-block;
 		margin: 0 auto;
@@ -207,6 +214,79 @@
 		color: white;
 	}
 	/*article style*/
+	/*events style*/
+
+	.event {
+		margin: 20px !important;
+	}
+
+	#readmore_headlinebutton>h5:hover {
+		background-color: #333;
+		color: white;
+	}
+	/*events style*/
+	/*announcement&upcommingevents*/
+
+	.announcements_and_upcommingevents {
+		margin: 0 auto 30px;
+		/*overflow-y: hidden;*/
+	}
+
+	.announcementorevent {
+		border-top-left-radius: 10px;
+		border-bottom-left-radius: 10px;
+		margin: 5px !important;
+		background: #efefef;
+	}
+
+	.announcementorevent .announce_date {
+		text-align: center;
+		border-top-left-radius: 10px;
+		border-bottom-left-radius: 10px;
+		color: white;
+		width: 50px;
+		background: black;
+		float: left;
+		clear: none;
+		padding: 10px;
+	}
+
+	.announcementorevent .content {
+		padding: 10px;
+	}
+
+	.announcementorevent p {
+		margin: 0 !important;
+		display: block;
+	}
+	/*announcement&upcommingevents*/
+	/*edges and staff*/
+
+	.edge_up {
+		height: 10px;
+		background: url(/../edgeup.png) repeat-x scroll 0% 100%/ contain;
+	}
+
+	.edge_down {
+		height: 10px;
+		background: url(/../edgedown.png) repeat-x scroll 0% 100%/ contain;
+	}
+
+	.staff_info {
+		background-color: black;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+	}
+
+	.staff_info>div {
+		color: white;
+		margin: 20px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	/*edges and staff*/
 </style>
 
 @endsection

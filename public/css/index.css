@@ -62,6 +62,7 @@
     width: 60px;
 }
 .title {
+    margin-right: 0 !important;
     display: block;
     position: relative;
     float: left;
@@ -120,12 +121,12 @@ li>a {
     border: none;
     float: right;
     padding: 0;
-    margin: 2.5em 0;
+    margin: 2.6em 0;
 }
 
 #button_image {
-    width: 40px;
-    height: 40px;
+    /* width: 40px; */
+    /* height: 40px; */
 }
 
 /*title and header*/
@@ -139,7 +140,7 @@ li>a {
     cursor: pointer;
 }
 
-.detail_button:hover ,#readmore_headlinebutton:hover{
+.detail_button:hover{
     background-color: #333;
     color: white;
 }
@@ -196,83 +197,7 @@ li>a {
 
 
 
-/*events style*/
 
-.event{
-    margin: 20px !important;
-}
-#readmore_headlinebutton{
-    padding: 8px 20px;
-    border: 2px solid black;
-    cursor: pointer;
-    display: inline-block;
-}
-/*events style*/
-
-/*announcement&upcommingevents*/
-
-.announcements_and_upcommingevents{
-    margin: 0 auto 30px;
-    /*overflow-y: hidden;*/
-}
-.announcementorevent{
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    margin: 5px !important;
-    background: #efefef;
-}
-.announcementorevent .announce_date{
-    text-align: center;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    color: white;
-    width: 50px;
-    background: black;
-    float: left;
-    clear: none;
-    padding: 10px;
-}
-.announcementorevent .content{
-    padding: 10px;
-}
-.announcementorevent p{
-    margin: 0 !important;
-    display: block;
-}
-/*announcement&upcommingevents*/
-
-
-
-/*edges and staff*/
-
-.edge_up {
-    height: 10px;
-    background: url(/../edgeup.png) repeat-x scroll 0% 100%/ contain;
-}
-
-.edge_down {
-    height: 10px;
-    background: url(/../edgedown.png) repeat-x scroll 0% 100%/ contain;
-}
-
-.staff_info {
-    background-color: black;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-.staff_info>div {
-    color: white;
-    margin: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-
-
-/*edges and staff*/
 
 
 /*footer*/
