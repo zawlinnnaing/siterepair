@@ -1,5 +1,6 @@
 @extends('layout') @section('content')
 <div id="landing">
+
         @include('header')
         <h4>The Civil</h4>
         <div class="brief_history column is-8">
@@ -9,6 +10,7 @@
         <div class="detail_button">
             <h5>Read More</h5>
         </div>
+
 </div>
 </div>
 <div class="mission_vision">
@@ -375,12 +377,11 @@
     color: #424242 !important;
 }
 
+
 .header li>a {
     text-decoration: none;
     color: #eee;
 }
-
-
 
 .brief_history {
     text-align: center;
@@ -596,7 +597,6 @@ p.overlay_text {
     /*width: 80vw;*/
     margin: 0 auto;
 }
-
 /*staffs*/
 </style>
 @endsection('style') @section("script") {{--

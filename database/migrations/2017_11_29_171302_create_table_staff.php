@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableResearch extends Migration
+class CreateTableStaff extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,15 @@ class CreateTableResearch extends Migration
      */
     public function up()
     {
-        Schema::create('reserach', function (Blueprint $table) {
+        Schema::create('staff', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('dep_id')->unsigned();
-            $table->string('title',250);
-            $table->text('description')->nullable();
-            $table->string('img_dir')->nullable();
-            $table->smallInteger('year')->unsigned()->nullable();
-            $table->foreign('dep_id')->references('id')->on('departments')->onDelete('cascade');
+            $table->string('name',150);
+            $table->string('title',150);
+            $table->string('research_area')->nullable();
+            $table->string('current_research')->nullable();
+            $table->string('img_dir',250)->nullable();;
+            $table->timestamps();
         });
     }
 
@@ -31,6 +32,6 @@ class CreateTableResearch extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reserach');
+        Schema::dropIfExists('staff');
     }
 }

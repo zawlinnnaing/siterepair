@@ -239,3 +239,14 @@ li>a {
     text-align: center;
 } */
 /* departments */
+
+.thumbnail{
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.secondary{
+    font-size: 13px;
+    color: #747474;
+}

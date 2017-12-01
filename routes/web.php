@@ -12,6 +12,12 @@
 */
 Route::get('/', 'HomeController@index');
 Route::get('/about','HomeController@about');
+Route::get('/articles',function (){
+	return view('articles');
+});
+Route::get('/detail',function(){
+	return view('detail');
+});
 
 Route::get('/departments/archi', 'HomeController@archi');
 Route::get('/departments/ceit', 'HomeController@ceit');
