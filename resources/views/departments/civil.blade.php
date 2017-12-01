@@ -1,6 +1,6 @@
 @extends('layout') @section('content')
 <div id="landing">
-    <div class="layer">
+
         @include('header')
         <h4>The Civil</h4>
         <div class="brief_history column is-8">
@@ -10,7 +10,7 @@
         <div class="detail_button">
             <h5>Read More</h5>
         </div>
-    </div>
+
 </div>
 </div>
 <div class="mission_vision">
@@ -33,70 +33,285 @@
         <div class="column is-2 bg_black"></div>
     </div>
 </div>
-<div class="offered_degrees columns">
-    <div class="column is-2 is-hidden-mobile"></div>
-    <div class="column is-4 undergrad">
-        <div>
-            <h5 style="text-align: center;">Undergraduate Offered Degrees</h5>
-            <ul>
-                <li>B.E. (Civil Engineering)</li>
-                <li>B.E. (Computer Engineering &amp; Information Technology)</li>
-                <li>B.E. (Electrical Power Engineering)</li>
-                <li>B.E. (Mechanical Engineering)</li>
-                <li>B.E. (Mechatronic Engineering)</li>
-                <li>B.E. (Chemical Engineering)</li>
-                <li>B.E. (Mining Engineering)</li>
-                <li>B.E. (Nuclear Technology)</li>
-                <li>B.E. (Biotechnology)</li>
-                <li>B.Arch. (Architecture)</li>
-            </ul>
+<div class="offered_degrees">
+    <div class="column is-8">
+        <div class="columns">
+            <div class="column undergrad">
+                <div>
+                    <h5 style="text-align: center;">Undergraduate Offered Degrees</h5>
+                    <ul>
+                        <li>B.E. (Civil Engineering)</li>
+                        <li>B.E. (Computer Engineering & Information Technology)</li>
+                        <li>B.E. (Electrical Power Engineering)</li>
+                        <li>B.E. (Mechanical Engineering)</li>
+                        <li>B.E. (Mechatronic Engineering)</li>
+                        <li>B.E. (Chemical Engineering)</li>
+                        <li>B.E. (Mining Engineering)</li>
+                        <li>B.E. (Nuclear Technology)</li>
+                        <li>B.E. (Biotechnology)</li>
+                        <li>B.Arch. (Architecture)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="column postgrad">
+                <div>
+                    <h5 style="text-align: center;">Postgraduate Offered Degrees</h5>
+                    <ul>
+                        <li>M.E. (Civil-Structural Engineering)</li>
+                        <li>M.E. (Civil-Water Resources Engineering)</li>
+                        <li>M.E. (Civil-Geotechnical Engineering)</li>
+                        <li>M.E. (Civil-Transportation Engineering )</li>
+                        <li>M.E. (Civil-Construction Management)</li>
+                        <li>M.E. (Information Technology)</li>
+                        <li>M.E. (Mechanical Engineering)</li>
+                        <li>M.E. (Electronic Engineering)</li>
+                        <li>M.E. (Electrical Power Engineering)</li>
+                        <li>M.E. (Mechatronic Engineering)</li>
+                        <li>M.E. (Chemical Engineering)</li>
+                        <li>M.E. (Mining Engineering)</li>
+                        <li>M.E. (Nuclear Technology)</li>
+                        <li>M.S. (Food Biotechnology) </li>
+                        <li>M.Arch. (Architecture)</li>
+                        <li>M.A. (English for Specific Purposes)</li>
+                        <li>Ph.D. (Structural Engineering)</li>
+                        <li>Ph.D. (Water Resources Engineering)</li>
+                        <li>Ph.D. (Information Technology)</li>
+                        <li>Ph.D. (Electronic Engineering)</li>
+                        <li>Ph.D. (Electrical Power Engineering)</li>
+                        <li>Ph.D. (Mechanical Engineering)</li>
+                        <li>Ph.D. (Mechatronic Engineering)</li>
+                        <li>Ph.D. (Chemical Engineering)</li>
+                        <li>Ph.D. (Mining Engineering)</li>
+                        <li>Ph.D. (Nuclear Technology)</li>
+                        <li>Ph.D. (Architecture)</li>
+                        <li>Ph.D. (Industrial Biotechnology) </li>
+                        <li>Ph.D. (Environmental Biotechnology)</li>
+                        <li>Ph.D. (Plant & Agricultural Biotechnology) </li>
+                        <li>Ph.D. (Food Biotechnology) </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="column is-4 postgrad">
-        <div>
-            <h5 style="text-align: center;">Postgraduate Offered Degrees</h5>
-            <ul>
-                <li>M.E. (Civil-Structural Engineering)</li>
-                <li>M.E. (Civil-Water Resources Engineering)</li>
-                <li>M.E. (Civil-Geotechnical Engineering)</li>
-                <li>M.E. (Civil-Transportation Engineering )</li>
-                <li>M.E. (Civil-Construction Management)</li>
-                <li>M.E. (Information Technology)</li>
-                <li>M.E. (Mechanical Engineering)</li>
-                <li>M.E. (Electronic Engineering)</li>
-                <li>M.E. (Electrical Power Engineering)</li>
-                <li>M.E. (Mechatronic Engineering)</li>
-                <li>M.E. (Chemical Engineering)</li>
-                <li>M.E. (Mining Engineering)</li>
-                <li>M.E. (Nuclear Technology)</li>
-                <li>M.S. (Food Biotechnology) </li>
-                <li>M.Arch. (Architecture)</li>
-                <li>M.A. (English for Specific Purposes)</li>
-                <li>Ph.D. (Structural Engineering)</li>
-                <li>Ph.D. (Water Resources Engineering)</li>
-                <li>Ph.D. (Information Technology)</li>
-                <li>Ph.D. (Electronic Engineering)</li>
-                <li>Ph.D. (Electrical Power Engineering)</li>
-                <li>Ph.D. (Mechanical Engineering)</li>
-                <li>Ph.D. (Mechatronic Engineering)</li>
-                <li>Ph.D. (Chemical Engineering)</li>
-                <li>Ph.D. (Mining Engineering)</li>
-                <li>Ph.D. (Nuclear Technology)</li>
-                <li>Ph.D. (Architecture)</li>
-                <li>Ph.D. (Industrial Biotechnology) </li>
-                <li>Ph.D. (Environmental Biotechnology)</li>
-                <li>Ph.D. (Plant &amp; Agricultural Biotechnology) </li>
-                <li>Ph.D. (Food Biotechnology) </li>
-            </ul>
+</div>
+<div class="research_facilities">
+    <div class="column is-10">
+        <h5>Research Facilities</h5>
+        <div class="gallery">
+            <div class="columns">
+                <div class="column">
+                    <a href="{{ asset('civil.png') }}">
+                        <div class="image is-3by2">
+                            <img src="{{ asset('civil.png') }}" />
+                            <p class="overlay_text">Matrix vs deadpool</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="column">
+                    <a href="{{ asset('civil.png') }}">
+                        <div class="image is-3by2">
+                            <img src="{{ asset('civil.png') }}" />
+                            <p class="overlay_text">Kung Fu Panda</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="column">
+                    <a href="{{ asset('civil.png') }}">
+                        <div class="image is-3by2">
+                            <img src="{{ asset('civil.png') }}" />
+                            <p class="overlay_text">A Movie</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="columns">
+                <div class="column">
+                    <a href="{{ asset('civil.png') }}">
+                        <div class="image is-3by2">
+                            <img src="{{ asset('civil.png') }}" />
+                            <p class="overlay_text">Matrix vs deadpool</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="column">
+                    <a href="{{ asset('civil.png') }}">
+                        <div class="image is-3by2">
+                            <img src="{{ asset('civil.png') }}" />
+                            <p class="overlay_text">Kung Fu Panda</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="column">
+                    <a href="{{ asset('civil.png') }}">
+                        <div class="image is-3by2">
+                            <img src="{{ asset('civil.png') }}" />
+                            <p class="overlay_text">A Movie</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 <div class="courses">
     <div class="column is-8">
-        <h5>Research Facilities</h5>
+    	<h5>Courses</h5>
+        <div class="columns">
+            <div class="column">
+                <div class="course_duration">
+                    <h4>BE 1<sup>st</sup> year</br>36 weeks</h4>
+                    <div class="course_detail">
+                    	<h5>Semester I</h5>
+						<ul>
+							<li>M11001 Myanmar I</li>
+							<li>E11001 English I</li>
+							<li>EM11001 Applied Mathematics I</li>
+							<li>E.Ch11001Engineering Chemistry I</li>
+							<li>E.Ph11001 Engineering Physics I</li>
+							<li>ME11011 Basic Engineering Drawing I</li>
+						</ul>
+						<h5>Semester II</h5>
+						<ul>
+							<li>M11001 Myanmar II</li>
+							<li>E11001 English II</li>
+							<li>EM11001 Applied Mathematics II</li>
+							<li>E.Ch11001Engineering Chemistry II</li>
+							<li>E.Ph11001 Engineering Physics II</li>
+							<li>ME11011 Basic Engineering Drawing II</li>
+						</ul>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="course_duration">
+                    <h4>BE 1<sup>st</sup> year</br>36 weeks</h4>
+                    <div class="course_detail">
+                    	<h5>Semester I</h5>
+						<ul>
+							<li>M11001 Myanmar I</li>
+							<li>E11001 English I</li>
+							<li>EM11001 Applied Mathematics I</li>
+							<li>E.Ch11001Engineering Chemistry I</li>
+							<li>E.Ph11001 Engineering Physics I</li>
+							<li>ME11011 Basic Engineering Drawing I</li>
+						</ul>
+						<h5>Semester II</h5>
+						<ul>
+							<li>M11001 Myanmar II</li>
+							<li>E11001 English II</li>
+							<li>EM11001 Applied Mathematics II</li>
+							<li>E.Ch11001Engineering Chemistry II</li>
+							<li>E.Ph11001 Engineering Physics II</li>
+							<li>ME11011 Basic Engineering Drawing II</li>
+						</ul>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="course_duration">
+                    <h4>BE 1<sup>st</sup> year</br>36 weeks</h4>
+                    <div class="course_detail">
+                    	<h5>Semester I</h5>
+						<ul>
+							<li>M11001 Myanmar I</li>
+							<li>E11001 English I</li>
+							<li>EM11001 Applied Mathematics I</li>
+							<li>E.Ch11001Engineering Chemistry I</li>
+							<li>E.Ph11001 Engineering Physics I</li>
+							<li>ME11011 Basic Engineering Drawing I</li>
+						</ul>
+						<h5>Semester II</h5>
+						<ul>
+							<li>M11001 Myanmar II</li>
+							<li>E11001 English II</li>
+							<li>EM11001 Applied Mathematics II</li>
+							<li>E.Ch11001Engineering Chemistry II</li>
+							<li>E.Ph11001 Engineering Physics II</li>
+							<li>ME11011 Basic Engineering Drawing II</li>
+						</ul>
+                    </div>
+                </div>
+            </div>
+        </div><div class="columns">
+            <div class="column">
+                <div class="course_duration">
+                    <h4>BE 1<sup>st</sup> year</br>36 weeks</h4>
+                    <div class="course_detail">
+                    	<h5>Semester I</h5>
+						<ul>
+							<li>M11001 Myanmar I</li>
+							<li>E11001 English I</li>
+							<li>EM11001 Applied Mathematics I</li>
+							<li>E.Ch11001Engineering Chemistry I</li>
+							<li>E.Ph11001 Engineering Physics I</li>
+							<li>ME11011 Basic Engineering Drawing I</li>
+						</ul>
+						<h5>Semester II</h5>
+						<ul>
+							<li>M11001 Myanmar II</li>
+							<li>E11001 English II</li>
+							<li>EM11001 Applied Mathematics II</li>
+							<li>E.Ch11001Engineering Chemistry II</li>
+							<li>E.Ph11001 Engineering Physics II</li>
+							<li>ME11011 Basic Engineering Drawing II</li>
+						</ul>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="course_duration">
+                    <h4>BE 1<sup>st</sup> year</br>36 weeks</h4>
+                    <div class="course_detail">
+                    	<h5>Semester I</h5>
+						<ul>
+							<li>M11001 Myanmar I</li>
+							<li>E11001 English I</li>
+							<li>EM11001 Applied Mathematics I</li>
+							<li>E.Ch11001Engineering Chemistry I</li>
+							<li>E.Ph11001 Engineering Physics I</li>
+							<li>ME11011 Basic Engineering Drawing I</li>
+						</ul>
+						<h5>Semester II</h5>
+						<ul>
+							<li>M11001 Myanmar II</li>
+							<li>E11001 English II</li>
+							<li>EM11001 Applied Mathematics II</li>
+							<li>E.Ch11001Engineering Chemistry II</li>
+							<li>E.Ph11001 Engineering Physics II</li>
+							<li>ME11011 Basic Engineering Drawing II</li>
+						</ul>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="course_duration">
+                    <h4>BE 1<sup>st</sup> year</br>36 weeks</h4>
+                    <div class="course_detail">
+                    	<h5>Semester I</h5>
+						<ul>
+							<li>M11001 Myanmar I</li>
+							<li>E11001 English I</li>
+							<li>EM11001 Applied Mathematics I</li>
+							<li>E.Ch11001Engineering Chemistry I</li>
+							<li>E.Ph11001 Engineering Physics I</li>
+							<li>ME11011 Basic Engineering Drawing I</li>
+						</ul>
+						<h5>Semester II</h5>
+						<ul>
+							<li>M11001 Myanmar II</li>
+							<li>E11001 English II</li>
+							<li>EM11001 Applied Mathematics II</li>
+							<li>E.Ch11001Engineering Chemistry II</li>
+							<li>E.Ph11001 Engineering Physics II</li>
+							<li>ME11011 Basic Engineering Drawing II</li>
+						</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-<div class="staff column is-6">
+	<div class="staff column is-6">
         <div class="column">
             <img src="{{ asset('civil.png') }}" class="image is-128x128 thumbnail">
             <div class="staff-info">
@@ -126,29 +341,30 @@
         </div>
 </div>
 @endsection('content') @section('style')
+<link rel="stylesheet" type="text/css" href="{{ asset('css/baugette.css') }}">
 <style>
+.toggle-button img{
+   -webkit-filter: invert(1);
+   filter: invert(1);
+}
 #landing {
-    display: block;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
     color: #eee;
     background-image: url('/../civil.png') !important;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 720px !important;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    align-items: center;
-    background-color: rgba(100, 100, 100, 0.1);
-    z-index: 3;
-    width: 100%;
 }
-
+.layer{
+	min-height: 720px;
+}
 #landing .title {
     color: #eee;
+    font-size: 4.5vh;
 }
 
 #landing .detail_button {
+	margin: 20px;
+	position: unset !important;
     border: 2px solid #eee;
 }
 
@@ -161,14 +377,11 @@
     color: #424242 !important;
 }
 
-li>a {
+
+.header li>a {
     text-decoration: none;
     color: #eee;
 }
-
-
-
-
 
 .brief_history {
     text-align: center;
@@ -223,11 +436,7 @@ li>a {
     text-align: right;
 }
 
-{
-    {
-        -- offered_degrees --
-    }
-}
+{{-- offered_degrees --}}
 
 .offered_degrees {
     padding: 0.5em 0 !important;
@@ -246,7 +455,6 @@ li>a {
 .postgrad>div {
     padding: 0.5em;
     background-color: #fff;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 .undergrad ul,
@@ -256,31 +464,101 @@ li>a {
     overflow-y: scroll;
 }
 
+{{-- offered_degrees --}}
 
-{
-    {
-        -- offered_degrees --
-    }
-}
+{{-- research Facilities --}}
 
-{
-    {
-        -- courses --
-    }
-}
-
+.research_facilities,
+.offered_degrees,
 .courses {
     display: flex;
     justify-content: center;
 }
 
-{
-    {
-        -- courses --
-    }
+.gallery>.columns>.column {
+    padding: 3px;
 }
 
+p.overlay_text {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: white;
+    width: 80%;
+    margin: 0;
+    font: bold Helvetica, Sans-Serif;
+    letter-spacing: -1px;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.6);
+    padding: 8px;
+}
 
+{{-- research Facilities --}}
+
+{{-- courses --}}
+
+.courses{
+	background: #eee;
+	margin-top: 20px;
+}
+
+.courses>.is-8 .column {
+    display: flex;
+    height: 200px;
+}
+
+.course_duration {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+    margin: 0 auto;
+    height: 25vh;
+    width: 25vh;
+    border-radius: 50%;
+    background: white;
+    transition: linear 0.2s;
+    overflow: visible;
+}
+.course_duration .course_detail{
+	padding: 10px;
+	padding-top: 0;
+	display: none;
+	width: 0;
+	height: 0;
+	font-size: 12px;
+	overflow: hidden;
+}
+
+.course_duration:hover {
+	color: white;
+    z-index: 3;
+    background: #333;
+    border-radius: 3px;
+    height: 80vh;
+    width: 35vh;
+}
+.course_duration:hover .course_detail{
+	height: auto;
+	width: auto;
+	display: block;
+}
+
+.course_detail ul{
+    padding: 10px;
+	margin-top: 0;
+	list-style: none;
+}
+.course_detail h5{
+	margin: 0;
+}
+.course_duration h4{
+	font-weight: 100;
+}
+
+{{-- courses --}}
+
+/*staffs*/
 
 /*Staff info*/
 
@@ -319,12 +597,15 @@ li>a {
     /*width: 80vw;*/
     margin: 0 auto;
 }
+/*staffs*/
 </style>
-@endsection('style') @section('script')
-<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
-<script type="text/javascript">
-$('.collapse').hover(function() {
-    $('.collapse-content').show("slide", "right");
+@endsection('style') @section("script") {{--
+<script src="{{ asset('js/jquery.js') }}"></script>
+<script src="{{ asset('js/lightgallery.js') }}"></script> --}}
+<script src="{{ asset('js/baugette.js') }}"></script>
+<script>
+baguetteBox.run('.gallery', {
+
 });
 </script>
-@endsection
+@endsection("script")
