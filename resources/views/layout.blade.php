@@ -32,6 +32,8 @@
       </section>
 	</nav>
 		<script type="text/javascript" src="{{ asset('js/slideout.js') }}"></script>
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
 	<script>
       var slideout = new Slideout({
         'panel': document.getElementById('panel'),
@@ -46,5 +48,6 @@
         slideout.toggle();
       });
     </script>
+    @yield('script')
 </body>
 
