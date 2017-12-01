@@ -1,30 +1,12 @@
 @extends('layout') 
 @section('content')
 <div id="landing">
-    <div class="layer">
         @include('header')
         <div class="detail_button">
             <h5>Read More</h5>
         </div>
-    </div>
 </div>
 <div class="events column is-10">
-<!-- 
-<<<<<<< HEAD
-    <h4>Headline Events</h4>
-    <div class="event columns">
-        <div class="column">
-            <div class="image is-16by9">
-                <img src="{{ asset('/mtucover.jpg') }}">
-            </div>
-        </div>
-        <div class="column">
-            <h3>The Title</h3>
-            <p>One summer afternoon, a group of recent college graduates decided to visit their favorite professor at his home. The grads had been out of school for about a year and they were each making their foray into the quote-unquote “real world” and dealing with all of the frustrations and confusion…</p>
-            <div id="readmore_headlinebutton">Read More</div>
-        </div>
-    </div>
-======= -->
 	<h4>Headline Events</h4>
 	<div class="event columns">
 		<div class="column">
@@ -46,14 +28,11 @@
 <div class="edge_up">
 </div>
 <div class="staff_info">
-    <div>
+    <div class="image is-64x64">
         <img src="{{ asset('/dept.png') }}">
-        <p>10 Departments</p>
     </div>
-    <div>
+    <div class="image is-64x64">
         <img src="{{ asset('/dept.png') }}">
-        <p>6 Supporting
-            <br>Departments</p>
     </div>
 </div>
 <div class="edge_down">
@@ -214,20 +193,7 @@
         text-align: center;
     }
 
-/*<<<<<<< HEAD
-    #morearticles_button>h5 {
-        border: 2px solid black;
-        display: inline-block;
-        margin: 0 auto;
-        padding: 10px 20px;
-    }
-
-    #morearticles_button>h5:hover {
-        background-color: #333;
-        color: white;
-    }
-=======
-*/	#morearticles_button>h5,#readmore_headlinebutton>h5 {
+	#morearticles_button>h5,#readmore_headlinebutton>h5 {
 		border: 2px solid black;
 		display: inline-block;
 		margin: 0 auto;
@@ -287,7 +253,7 @@
 	/*announcement&upcommingevents*/
 	/*edges and staff*/
 
-	.edge_up {
+	/*.edge_up {
 		height: 10px;
 		background: url(/../edgeup.png) repeat-x scroll 0% 100%/ contain;
 	}
@@ -295,10 +261,11 @@
 	.edge_down {
 		height: 10px;
 		background: url(/../edgedown.png) repeat-x scroll 0% 100%/ contain;
-	}
+	}*/
 
 	.staff_info {
-		background-color: black;
+        height: 200px;
+		background-color: #222;
 		display: flex;
 		flex-direction: row;
 		justify-content: space-around;
