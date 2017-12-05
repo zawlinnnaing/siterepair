@@ -23,9 +23,8 @@ class viewsController extends Controller
         $posts = $data->getData()->posts;
         $photos = $data->getData()->photos;
         $announcements = $data->getData()->announcements;
-        return view('demo.index',['posts'=> $posts ,'photos' => $photos,'announcements' => $announcements]);
-            // return response()->json(['posts'=> $posts ,'photos' => $photos,'announcements' => $announcements],200);
-
+//        return view('demo.index',['posts'=> $posts ,'photos' => $photos,'announcements' => $announcements]);
+        return view('posts.index',['posts' => $posts]);
     }
     public function details ($id) {
 //        $controller = new postsController;
