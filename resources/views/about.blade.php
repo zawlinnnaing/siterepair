@@ -87,7 +87,7 @@
     </div>
 </div>
 <div class="container">
-    <div class="current_principle">
+    <div class="current_principle column">
         <h3>Current Head of University</h3>
         <img src="{{asset('mgfreeman.jpg')}}" width="200" height="200" />
         <h4 style="font-style: italic;">Morgan Freeman</h4>
@@ -140,7 +140,6 @@
 <style type="text/css">
 .container {
     margin-top: 3rem;
-    padding: 3rem 2rem;
 }
 
 @media screen and (min-width: 1000px) {
@@ -231,10 +230,9 @@ span {
 }
 
 .current_principle {
-    border-radius: 10px;
-    background-color: #BDBDBD;
+    border-radius: 3px;
+    background-color: #efefef;
     text-align: center;
-    padding: 1rem;
     width: 80%;
     margin: auto;
     margin-bottom: 3rem;
