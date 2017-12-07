@@ -44,6 +44,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/posts/edit/{id}', 'viewsController@edit')->name('posts.edit');
     Route::post('/posts/update/{id}', 'postsController@update')->name('posts.update');
     Route::get('/posts/delete/{id}', 'postsController@delete')->name('posts.delete');
+    Route::get('admin/dep/create','viewsController@createDep')->name('admin.createDep');
 });
 
 //api routes
@@ -53,5 +54,6 @@ Auth::routes();
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/admin/dep/insert','HomeController@insertDep')->name('admin.insertDep');
 app()->bind('postsPhotosController', App\Http\Controllers\postsPhotosController::class);
 app()->bind('postsController', App\Http\Controllers\postsController::class);

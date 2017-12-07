@@ -119,7 +119,8 @@
         <div class="column">
             <h4 class="head_class">Rectors</h4>
             <div class="rector_card">
-                <p class="name">U Khin Maung</p>
+                <p class="name">U Khin Maung</p> 
+                
                 <p class="period">6.1991 - 10.1998</p>
             </div>
             <div class="rector_card">

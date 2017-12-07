@@ -14,7 +14,6 @@ class viewsController extends Controller
         // app()->bind('postsController',postsController::class);
 
         $this->dataControllerPosts =app()->make('postsController');
-        $this->dataControllerPhotos = app()->make('postsPhotosController');
     }
 
     public function index () {
@@ -43,24 +42,11 @@ class viewsController extends Controller
  		return view('posts.edit',['post' => $post]);
  	}
 
-
-
- 	public function photosIndex(){
-        // $controller = new postsPhotoController;
-
- 	    return view('photos.index');
-    }
-    public function photosAdd(){
- 	    return view('photos.add');
+    public function createDep(){
+        return view('admin.createDep');
     }
 
-    public function photosDetails(){
-        return view('photos.details');
-    }
-
-    public function photosEdit(){
-        return view('photos.edit');
-    }
+ 	
 
 
  	

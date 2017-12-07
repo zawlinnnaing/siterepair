@@ -1,9 +1,11 @@
-@extends('layout')
+@extends('layouts.app')
 @section('content')
+<div class="columns">
+    @include('postSideBar')
     @if(Session::has('success_msg'))
         <div class="success_msg">{{ Session::get('success_msg') }}</div>
     @endif
-    <div class="column is-8">
+    <div class="column">
         <table class="table">
             <thead>
             <td>Title</td>
@@ -24,6 +26,7 @@
             </tbody>
         </table>
     </div>
+</div>
 @endsection
 @section('style')
     <style type="text/css">

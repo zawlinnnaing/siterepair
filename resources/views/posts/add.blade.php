@@ -1,5 +1,7 @@
-@extends('layout') @section('content')
-
+@extends('layouts.app') 
+@section('content')
+<div class="columns">
+@include('postSideBar') 
     <div class="column is-8">
         <h4>Add a post</h4>
         <form class="form" action="{{ route('posts.insert') }}" method="POST" enctype="multipart/form-data">
@@ -55,6 +57,7 @@
 
         </form>
     </div>
+</div>
 @endsection @section('style')
     <style type="text/css">
         .is-8 {
