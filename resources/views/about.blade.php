@@ -107,7 +107,7 @@
                 <p>(5.12.1996 - now )</p>
             </div>
         </div>
-    </div>
+</div>
     <div class="columns rectors">
         <div class="column">
             <h4 class="head_class">Temporary Heads</h4>
@@ -155,7 +155,6 @@
 <style type="text/css">
     .container {
     margin-top: 3rem;
-    padding: 3rem 2rem;
 }
 
 @media screen and (min-width: 1000px) {

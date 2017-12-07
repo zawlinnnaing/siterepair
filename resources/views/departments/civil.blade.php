@@ -92,6 +92,32 @@
                 </div>
             </div>
         </div>
+        {{-- <div class="degrees">
+            <div class="items">
+                Undergraduate Degrees
+            </div>
+            <div class="items">
+                B.E(Civil)
+            </div>
+        </div>
+        <div class="degrees">
+            <div class="items">
+                Postgraduate Degrees
+            </div>
+            <div class="items">
+                B.E(Civil)
+            </div><div class="items">
+                B.E(Civil)
+            </div><div class="items">
+                B.E(Civil)
+            </div><div class="items">
+                B.E(Civil)
+            </div><div class="items">
+                B.E(Civil)
+            </div>
+        </div> --}}
+            
+        
     </div>
 </div>
 <div class="research_facilities">
@@ -439,8 +465,9 @@
 {{-- offered_degrees --}}
 
 .offered_degrees {
-    padding: 0.5em 0 !important;
-    background-image: url('/../civil.png') !important;
+    padding: 0.2em 0 !important;
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('/../degree_bg.jpg');
+    /*background-image: url('/../degree_bg.jpg') !important;*/
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -448,13 +475,18 @@
 
 .offered_degrees>.column {
     padding: 0 !important;
-    margin: 0.5em;
+    margin: 0.3em;
 }
 
 .undergrad>div,
 .postgrad>div {
+    /*border: 1px solid #757575;*/
     padding: 0.5em;
-    background-color: #fff;
+    color: #e0e0e0;
+}
+
+.undergrad ,.postgrad{
+    padding: 0.2em;
 }
 
 .undergrad ul,
@@ -597,6 +629,7 @@ p.overlay_text {
     /*width: 80vw;*/
     margin: 0 auto;
 }
+
 /*staffs*/
 </style>
 @endsection('style') @section("script") {{--
