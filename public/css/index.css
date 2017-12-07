@@ -253,6 +253,7 @@ li>a {
     flex-grow: 2;
 }
 .footer_logo{
+    margin: 0 2.5em;
     width: 15%;
     flex-grow: 1;
 }
