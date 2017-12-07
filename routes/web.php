@@ -26,7 +26,7 @@ Route::get('/detail', function () {
 Route::get('/departments/archi', 'HomeController@archi');
 Route::get('/departments/ceit', 'HomeController@ceit');
 Route::get('/departments/che', 'HomeController@che');
-Route::get('/departments/civil', 'HomeController@civil');
+Route::get('/departments/civil', 'viewsController@dep');
 Route::get('/departments/ec', 'HomeController@ec');
 Route::get('/departments/eng', 'HomeController@eng');
 Route::get('/departments/ep', 'HomeController@ep');

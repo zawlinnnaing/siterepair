@@ -46,6 +46,9 @@ class viewsController extends Controller
         return view('admin.createDep');
     }
 
+    public function dep(){
+        return view('departments.civil');
+    }
  	
 
 
