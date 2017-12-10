@@ -4,20 +4,21 @@
 			Research
 		</p>
 		<ul class="menu-list">
-			<li><a href="">Add research facilities</a></li>
+			<li><a href="{{ route('admin.add_research') }}">Add research facilities</a></li>
+			<li><a href="{{ route('admin.add_degree') }}">Add Degrees</a></li>
 		</ul>
 		<p class="menu-label">
 			Dept details
 		</p>
 		<ul class="menu-list">
-			<li><a href="">Archi</a></li>
-			<li><a href="">BioTech</a></li>
-			<li><a href="">Chemical</a></li>
-			<li><a href="">Civil</a></li>
-			<li><a href="">EC</a></li>
-			<li><a href="">EP</a></li>
-			<li><a href="">IT</a></li>
-			<li><a href="">Nuclear</a></li>
+			<li><a href="{{ route('admin.edit_dep',['keyword' => 'archi']) }}">Archi</a></li>
+			<li><a href="{{ route('admin.edit_dep','biotech') }}">BioTech</a></li>
+			<li><a href="{{ route('admin.edit_dep','chemical') }}">Chemical</a></li>
+			<li><a href="{{ route('admin.edit_dep','civil') }}">Civil</a></li>
+			<li><a href="{{ route('admin.edit_dep','ec') }}">EC</a></li>
+			<li><a href="{{ route('admin.edit_dep','ep') }}">EP</a></li>
+			<li><a href="{{ route('admin.edit_dep','it') }}">IT</a></li>
+			<li><a href="{{ route('admin.edit_dep','nuclear') }}">Nuclear</a></li>
 		</ul>
 	</aside>
 </div>

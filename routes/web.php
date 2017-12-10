@@ -29,7 +29,7 @@ Route::get('/departments/che', 'HomeController@che');
 Route::get('/departments/civil', 'viewsController@dep');
 Route::get('/departments/ec', 'HomeController@ec');
 Route::get('/departments/eng', 'HomeController@eng');
-Route::get('/departments/ep', 'HomeController@ep');
+Route::get('/date_parse_from_format(format, date)ments/ep', 'HomeController@ep');
 Route::get('/departments/ir', 'HomeController@ir');
 Route::get('/departments/maths', 'HomeController@maths');
 Route::get('/departments/mech', 'HomeController@mech');
@@ -45,6 +45,26 @@ Route::middleware('auth')->group(function () {
     Route::post('/posts/update/{id}', 'postsController@update')->name('posts.update');
     Route::get('/posts/delete/{id}', 'postsController@delete')->name('posts.delete');
     Route::get('admin/dep/create','viewsController@createDep')->name('admin.createDep');
+    Route::get('admin/add_degree',function(){
+        return view('admin.add_degree');
+    })->name('admin.add_degree');
+    Route::post('/admin/insert_degree','HomeController@insertDeg')->name('admin.insert_deg');
+    Route::get('/admin/edit_dep/{keyword}','HomeController@editDep')->name('admin.edit_dep');
+    Route::post('/admin/update_dep/{keyword}','HomeController@updateDep')->name('admin.updateDep');
+    Route::get('/admin/delete_deg/{id}','HomeController@deleteDeg');
+    Route::get('/admin/delete_research/{id}','HomeController@deleteResearch');
+    Route::get('/admin/add_research',function(){
+        return view('admin.add_research');
+    })->name('admin.add_research');
+    Route::post('/admin/insert_research','HomeController@insertResearch')->name('admin.insert_research');
+    Route::get('/admin/add_announcement',function (){
+        return view('announcements.add');
+    })->name('announcements.add');
+    Route::post('/admin/insert_announcement','HomeController@insertAnnouncement')->name('announcements.insert');
+    Route::get('/admin/announcements','HomeController@annIndex')->name('announcements.index');
+    Route::get('/admin/announcements/edit/{id}','HomeController@editAnn')->name('announcements.edit');
+    Route::post('/admin/announcements/update/{id}','HomeController@updateAnn')->name('announcements.update');
+    Route::get('/admin/announcements/delete/{id}','HomeController@deleteAnn')->name('announcements.delete');
 });
 
 //api routes

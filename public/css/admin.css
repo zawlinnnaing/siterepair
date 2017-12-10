@@ -20,3 +20,12 @@ p.is-success{
 	color: whitesmoke;
 	padding: 0.4em 1em;
 }
+form h3{
+	margin-left: 0;
+}
+form input[type='text']{
+	width: 50% !important;
+}
+form .field{
+	margin: 2em 0;
+}

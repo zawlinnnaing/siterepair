@@ -14,10 +14,10 @@ class Department extends Model
     protected $fillable = ['name','history','mission','vision'];
 
     public function degrees(){
-    	return $this->hasMany('App\Degree');
+    	return $this->hasMany('App\Degree','dep_id');
     }
 
     public function research(){
-        return $this->hasMany('App\Research');
+        return $this->hasMany('App\Research','dep_id');
     }
 }
