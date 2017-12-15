@@ -194,24 +194,6 @@ h3 {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*#mission:hover,#vision:hover{
-        background-color: #757575;
-        color: white;
-    }*/
-
 #vision {
     float: left;
     background-color: #424242;
@@ -263,23 +245,6 @@ h3 {
     transition: all .5s;
     position: relative;
 }
-
-
-
-
-
-
-
-
-/*table{
-        margin: auto;
-        margin-bottom: 50px;
-        width: 80%;
-    }
-    td{
-        padding: 1rem 3rem;
-        border-bottom: 1px solid #757575;
-    }*/
 
 .rect_mobile {
     width: 100%;
