@@ -7,7 +7,7 @@
             <li><a href="/about">About</a></li>
             <li><a href="/">Research</a></li>
             <li><a href="/">Activities</a></li>
-            <li><a href="/">Acedamic Plan</a></li>
+            <li><a href="/">Campus Life</a></li>
             <li><a href="/">Departments</a></li>
         </ul>
     <div class="toggle-button is-hidden-desktop is-hidden-tablet"><img id="button_image" src="/menu2.png"></div>

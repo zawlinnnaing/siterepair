@@ -22,6 +22,9 @@ Route::get('/articles', function () {
 Route::get('/detail', function () {
     return view('detail');
 });
+Route::get('/campuslife', function (){
+    return view('campusLife');
+});
 
 Route::get('/departments/archi', 'HomeController@archi');
 Route::get('/departments/ceit', 'HomeController@ceit');
