@@ -15,6 +15,7 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         error_reporting(E_ALL ^ E_NOTICE);
+        
     }
 
     /**

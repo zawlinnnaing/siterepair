@@ -8,6 +8,7 @@ class Degree extends Model
 {
     //
     protected $table = 'degrees';
+    public $timestamps = false;
 
     protected $fillable = ['dep_id','deg_title','type'];
 
