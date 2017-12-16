@@ -366,7 +366,7 @@
             </div>
         </div>
 </div>
-@endsection('content') @section('style')
+@endsection @section('style')
 <link rel="stylesheet" type="text/css" href="{{ asset('css/baugette.css') }}">
 <style>
 .toggle-button img{
