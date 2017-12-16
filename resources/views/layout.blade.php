@@ -86,7 +86,7 @@
     });
 
     // Toggle button
-    var toggle_btn = document.getElementById('toggle-button');
+    var toggle_btn = document.querySelector('.toggle-button');
     if (toggle_btn) {
         document.querySelector('.toggle-button').addEventListener('click', function () {
             slideout.toggle();

@@ -23,18 +23,6 @@ Route::get('/detail', function () {
     return view('detail');
 });
 
-Route::get('/departments/archi', 'HomeController@archi');
-Route::get('/departments/ceit', 'HomeController@ceit');
-Route::get('/departments/che', 'HomeController@che');
-Route::get('/departments/civil', 'viewsController@dep');
-Route::get('/departments/ec', 'HomeController@ec');
-Route::get('/departments/eng', 'HomeController@eng');
-Route::get('/date_parse_from_format(format, date)ments/ep', 'HomeController@ep');
-Route::get('/departments/ir', 'HomeController@ir');
-Route::get('/departments/maths', 'HomeController@maths');
-Route::get('/departments/mech', 'HomeController@mech');
-Route::get('/departments/mecha', 'HomeController@mecha');
-Route::get('/departments/myan', 'HomeController@myan');
 
 Route::middleware('auth')->group(function () {
     Route::get('/posts', 'viewsController@index')->name('posts.index');
