@@ -26,6 +26,8 @@ Route::get('/campuslife', function (){
     return view('campusLife');
 });
 
+Route::get('/departments/{keyword}','PageController@dep')->name('department');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/posts', 'viewsController@index')->name('posts.index');
@@ -61,9 +63,6 @@ Route::middleware('auth')->group(function () {
 //api routes
 Route::get('/postsapi', 'postsController@index');
 Auth::routes();
-
-Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/admin/dep/insert','HomeController@insertDep')->name('admin.insertDep');
 app()->bind('postsPhotosController', App\Http\Controllers\postsPhotosController::class);
