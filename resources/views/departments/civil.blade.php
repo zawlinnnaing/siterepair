@@ -345,6 +345,7 @@
                 <h5>Dr. John Watson</h5>
                 <p class="secondary">Current Research: Sherlock Homes</p>
                 <p class="secondary">Research Area: Army Doctor</p>
+                <span class="hod_badge">HOD</span>
             </div>
         </div>
         <div class="column">
@@ -599,7 +600,17 @@ p.overlay_text {
     margin: 0 5vw;
     
 }
-
+.hod_badge{
+    border: 1px solid #424242;
+    text-align: center;
+    border-radius: 15px;
+    line-height: 30px;
+    height: 30px;
+    width: 30px;
+    font-size: 0.7em;
+    background: #424242;
+    color: #ededed;
+}
 .staff-info {
     display: flex;
     flex-direction: column;

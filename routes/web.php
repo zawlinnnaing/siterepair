@@ -22,8 +22,12 @@ Route::get('/articles', function () {
 Route::get('/detail', function () {
     return view('detail');
 });
-Route::get('/campuslife', function (){
+Route::get('/campuslife', function () {
     return view('campusLife');
+});
+
+Route::get('/departments', function () {
+    return view('departments.departmentList');
 });
 
 Route::get('/departments/archi', 'HomeController@archi');
