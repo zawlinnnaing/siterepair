@@ -5,26 +5,26 @@
 	    <div class="columns">
 	        <div class="column engineering_dept is-6">
 	        	<ul>
-	        		<li>Architectural Engineering</li>
-	        		<li>BioTech</li>
-	        		<li>Chemical Engineering</li>
-	        		<li>Civil Engineering</li>
-	        		<li>Computer Engineering & Information Technological</li>
-					<li>Electrical Power Engineering</li>	        		
-	        		<li>Electronic Engineering</li>
-	        		<li>Mechanical Engineering</li>
-	        		<li>Mechatronic Engineering</li>
+	        		<li><a href="/departments/">Architectural Engineering</a></li>
+	        		<li><a href="/departments/">BioTech</a></li>
+	        		<li><a href="/departments/">Chemical Engineering</a></li>
+	        		<li><a href="/departments/civil">Civil Engineering</a></li>
+	        		<li><a href="/departments/">Computer Engineering & Information Technological</a></li>
+					<li><a href="/departments/">Electrical Power Engineering</a></li>	        		
+	        		<li><a href="/departments/">Electronic Engineering</a></li>
+	        		<li><a href="/departments/">Mechanical Engineering</a></li>
+	        		<li><a href="/departments/">Mechatronic Engineering</a></li>
 	        	</ul>
 	        </div>
 	        <div class="column supporting_dept is-6">
 	        	<ul>
-	        		<li>Engineering Chemistry</li>
-	        		<li>Engineering English</li>
-	        		<li>Engineering Maths</li>
-	        		<li>Engineering Physics</li>
-	        		<li>International Relation</li>
-	        		<li>Myanmar</li>
-	        		<li>Workshop</li>
+	        		<li><a href="/departments/">Engineering Chemistry</a></li>
+	        		<li><a href="/departments/">Engineering English</a></li>
+	        		<li><a href="/departments/">Engineering Maths</a></li>
+	        		<li><a href="/departments/">Engineering Physics</a></li>
+	        		<li><a href="/departments/">International Relation</a></li>
+	        		<li><a href="/departments/">Myanmar</a></li>
+	        		<li><a href="/departments/">Workshop</a></li>
 	        	</ul>
 	        </div>
 	    </div>
@@ -78,7 +78,6 @@ ul.nav-list>li {
 	margin: 0;
 	padding: 0;
 	text-align: center;
-	color: #ededed;
 }
 .engineering_dept>ul>li,.supporting_dept>ul>li{
 	padding: 0.8em;
@@ -87,8 +86,12 @@ ul.nav-list>li {
 }
 .engineering_dept>ul,.supporting_dept>ul{
 	margin: 0;
-	padding:0;
+	padding: 0;
 }
+.engineering_dept>ul>li>a,.supporting_dept>ul>li>a{
+	color: #ededed;
+}
+
 
 </style>
 @endsection
