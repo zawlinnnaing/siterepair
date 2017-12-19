@@ -27,6 +27,9 @@ Route::get('/campuslife', function () {
 });
 
 Route::get('/departments/{keyword}','PageController@dep')->name('department');
+Route::get('/departments',function(){
+    return view('departments.departmentList');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/posts', 'viewsController@index')->name('posts.index');
@@ -57,6 +60,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/announcements/edit/{id}','HomeController@editAnn')->name('announcements.edit');
     Route::post('/admin/announcements/update/{id}','HomeController@updateAnn')->name('announcements.update');
     Route::get('/admin/announcements/delete/{id}','HomeController@deleteAnn')->name('announcements.delete');
+    Route::get('/admin/add_staff',function (){
+        return view('admin.addStaff');
+    })->name('admin.add_staff');
+    Route::post('/admin/insert_staff','HomeController@insertStaff')->name('admin.insert_staff');
 });
 
 //api routes

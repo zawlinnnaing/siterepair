@@ -70,14 +70,15 @@
                     @foreach( $dep->research as $index )
                         <div class="column">
                             @if(empty($index->img_dir))
-                                <a href="{{ asset('uploads/no-image-available.png') }}" data-caption = "{{ $index->description }}">
+                                <a href="{{ asset('uploads/no-image-available.png') }}"
+                                   data-caption="{{ $index->description }}">
                                     <div class="image is-3by2">
                                         <img src="{{ asset('uploads/no-image-available.png') }}"/>
                                         <p class="overlay_text">{{ $index->title }}</p>
                                     </div>
                                 </a>
                             @else
-                                <a href="{{ asset('civil.png') }}" data-caption = {{ $index->description }}>
+                                <a href="{{ asset('civil.png') }}" data-caption= {{ $index->description }}>
                                     <div class="image is-3by2">
                                         <img src="{{ asset('civil.png') }}"/>
                                         <p class="overlay_text">Matrix vs deadpool</p>
@@ -290,33 +291,24 @@
         </div>
     </div>
     <div class="staff column is-6">
-        <div class="column">
-            <img src="{{ asset('civil.png') }}" class="image is-128x128 thumbnail">
-            <div class="staff-info">
-                <h5>Professor</h5>
-                <h5>Dr. John Watson</h5>
-                <p class="secondary">Current Research: Sherlock Homes</p>
-                <p class="secondary">Research Area: Army Doctor</p>
+        @foreach($dep->staff as $index)
+            <div class="column">
+                @if(empty($index->img_dir))
+                    <img src="{{ asset('staff_photos/default.png') }}" class="image is-128x128 thumbnail">
+                @else
+                    <img src="{{ asset('staff_photos/'.$index->img_dir) }}" class="image is-128x128 thumbnail">
+                @endif
+                <div class="staff-info">
+                    <h5>{{ $index->title }}</h5>
+                    <h5>{{ $index->staff_name }}</h5>
+                    <p class="secondary"> Current Research: {{ $index->current_research }}</p>
+                    <p class="secondary">Research Area: {{ $index->research_area }}</p>
+                    @if(strtolower()$index->title == 'head of departments')
+                        <span class="hod_badge">HOD</span>
+                    @endif
+                </div>
             </div>
-        </div>
-        <div class="column">
-            <img src="{{ asset('civil.png') }}" class="image is-128x128 thumbnail">
-            <div class="staff-info">
-                <h5>Professor</h5>
-                <h5>Dr. John Watson</h5>
-                <p class="secondary">Current Research: Sherlock Homes</p>
-                <p class="secondary">Research Area: Army Doctor</p>
-            </div>
-        </div>
-        <div class="column">
-            <img src="{{ asset('civil.png') }}" class="image is-128x128 thumbnail">
-            <div class="staff-info">
-                <h5>Professor</h5>
-                <h5>Dr. John Watson</h5>
-                <p class="secondary">Current Research: Sherlock Homes</p>
-                <p class="secondary">Research Area: Army Doctor</p>
-            </div>
-        </div>
+            @endforeach
     </div>
 @endsection @section('style')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/baugette.css') }}">
@@ -548,7 +540,7 @@
 
         {{-- courses --}}
 
-    /*staffs*/
+     /*staffs*/
 
         /*Staff info*/
 
@@ -588,6 +580,18 @@
             display: block;
             /*width: 80vw;*/
             margin: 0 auto;
+        }
+
+        .hod_badge {
+            border: 1px solid #424242;
+            text-align: center;
+            border-radius: 15px;
+            line-height: 30px;
+            height: 30px;
+            width: 30px;
+            font-size: 0.7em;
+            background: #424242;
+            color: #ededed;
         }
 
         /*staffs*/

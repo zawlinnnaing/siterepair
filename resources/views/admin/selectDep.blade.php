@@ -8,4 +8,6 @@
 	<option value="ec">Electronic</option>
 	<option value="ep">Electrical Power</option>
 	<option value="nuclear">Nuclear</option>
+	<option value="mechanical">Mechanical Engineering</option>
+	<option value="mechatronic">Mechatronic Engineering</option>
 </select>
