@@ -20,7 +20,8 @@ class CreateTableStaff extends Migration
             $table->string('title',150);
             $table->string('research_area')->nullable();
             $table->string('current_research')->nullable();
-            $table->string('img_dir',250)->nullable();;
+            $table->string('img_dir',250)->nullable();
+            $table->foreign('dep_id')->references('id')->on('departments')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -5,15 +5,15 @@
 	    <div class="columns">
 	        <div class="column engineering_dept is-6">
 	        	<ul>
-	        		<li>Architectural Engineering</li>
-	        		<li>BioTech</li>
-	        		<li>Chemical Engineering</li>
-	        		<li>Civil Engineering</li>
-	        		<li>Computer Engineering & Information Technological</li>
-					<li>Electrical Power Engineering</li>	        		
-	        		<li>Electronic Engineering</li>
-	        		<li>Mechanical Engineering</li>
-	        		<li>Mechatronic Engineering</li>
+					<li><a href="{{ route('department','archi') }}">Architectural Engineering</a></li>
+					<li><a href="{{ route('department','biotech') }}">BioTech</a></li>
+					<li><a href="{{ route('department','chemical') }}">Chemical Engineering</a></li>
+					<li><a href="{{ route('department','civil') }}">Civil Engineering</a></li>
+					<li><a href="{{ route('department','ceit') }}">Computer Engineering & Information Technological</a></li>
+					<li><a href="{{ route('department','ep') }}">Electrical Power Engineering</a></li>
+					<li><a href="{{ route('department','ec') }}">Electronic Engineering</a></li>
+					<li><a href="{{ route('department','mechancial') }}">Mechanical Engineering</a></li>
+					<li><a href="{{ route('department','mechatronic') }}">Mechatronic Engineering</a></li>
 	        	</ul>
 	        </div>
 	        <div class="column supporting_dept is-6">
@@ -88,6 +88,10 @@ ul.nav-list>li {
 .engineering_dept>ul,.supporting_dept>ul{
 	margin: 0;
 	padding:0;
+}
+
+.column ul li a {
+	color: #ededed;
 }
 
 </style>
