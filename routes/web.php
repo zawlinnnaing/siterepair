@@ -22,12 +22,11 @@ Route::get('/articles', function () {
 Route::get('/detail', function () {
     return view('detail');
 });
-Route::get('/campuslife', function (){
+Route::get('/campuslife', function () {
     return view('campusLife');
 });
 
 Route::get('/departments/{keyword}','PageController@dep')->name('department');
-
 
 Route::middleware('auth')->group(function () {
     Route::get('/posts', 'viewsController@index')->name('posts.index');

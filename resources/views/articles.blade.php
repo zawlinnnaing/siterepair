@@ -63,6 +63,11 @@
     margin: 0 auto;
 }
 
+.nav-list>li a {
+    padding: 1em 1em;
+    color: black;
+}
+
 .header {
     display: flex;
     justify-content: space-between;
@@ -90,20 +95,21 @@ input[type='submit'] {
     color: white;
 }
 
-.item .detail_button{
-	vertical-align: bottom;
-	padding: 1em;
-	background-color: white;
-	color: black;
+.item .detail_button {
+    vertical-align: bottom;
+    padding: 1em;
+    background-color: white;
+    color: black;
 }
 
 
 
-.item  .is-2{
-	/*color: black;
-	background-color: white;
-	border: 1px solid #bdbdbd;*/
-/*	display: inline;
-*/}
+.item .is-2 {
+    /*color: black;
+    background-color: white;
+    border: 1px solid #bdbdbd;*/
+    /*  display: inline;
+*/
+}
 </style>
 @endsection

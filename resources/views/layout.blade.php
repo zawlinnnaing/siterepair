@@ -67,11 +67,10 @@
         <section class="menu-section">
             <h3 class="menu-section-title">Menu</h3>
             <ul class="menu-section-list">
-                <li><a href="/">About</a></li>
-                <li><a href="/">Research</a></li>
-                <li><a href="/">Activities</a></li>
-                <li><a href="/">Campus Life</a></li>
-                <li><a href="/">Departments</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/articles">Activities</a></li>
+                <li><a href="/campuslife">Campus Life</a></li>
+                <li><a href="/departments">Departments</a></li>
             </ul>
         </section>
     </nav>

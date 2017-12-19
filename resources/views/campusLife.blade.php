@@ -14,15 +14,16 @@
 <style>
 #landing {
 }
+.nav-list>li a {
+    padding: 1em 1em;
+    color: black;
+}
+
 .nav-list li a:hover {
     background-color: #dedede;
     color: #424242 !important;
 }
 
 
-.header li>a {
-    text-decoration: none;
-    color: #eee;
-}
 </style>
 @endsection

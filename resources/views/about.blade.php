@@ -2,13 +2,12 @@
 <div id="landing_about">
     <div class="layer">
         @include('header')
+        <div class="mtu-map">
+            <a href="{{ asset('mtu-map.png') }}" target="_blank"></a>
+        </div>
     </div>
 </div>
-
 <!-- MTU map -->
-<div class="mtu-map">
-    <a href="{{ asset('mtu-map.png') }}" target="_blank"></a>
-</div>
 <div class="container">
     <div class="history-background">
         <h3>Historical Background</h3>
@@ -94,12 +93,11 @@
 </div>
 <div class="container">
     <!-- Updated part dont delete -->
-    <div class="current_principle">
+    <div class="current_principle column is-8">
         <div class="columns">
             <div class="column is-5 img_parent">
-                    <div class="img_child">
-                    </div>
-                
+                <div class="img_child">
+                </div>
             </div>
             <div class="column">
                 <h3>Current Head of University</h3>
@@ -107,7 +105,7 @@
                 <p>(5.12.1996 - now )</p>
             </div>
         </div>
-</div>
+    </div>
     <div class="columns rectors">
         <div class="column">
             <h4 class="head_class">Temporary Heads</h4>
@@ -119,8 +117,7 @@
         <div class="column">
             <h4 class="head_class">Rectors</h4>
             <div class="rector_card">
-                <p class="name">U Khin Maung</p> 
-                
+                <p class="name">U Khin Maung</p>
                 <p class="period">6.1991 - 10.1998</p>
             </div>
             <div class="rector_card">
@@ -153,7 +150,7 @@
 @endsection('content') @section('style')
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 <style type="text/css">
-    .container {
+.container {
     margin-top: 3rem;
 }
 
@@ -169,8 +166,14 @@
     }
 }
 
+.header {}
+
+.nav-list>li a {
+    padding: 1em 1em;
+    color: black;
+}
+
 h3 {
-    text-align: center;
     color: #757575;
 }
 
@@ -253,24 +256,41 @@ h3 {
     overflow: scroll;
 }
 
+.current_principle {
+    margin: 0 auto;
+    padding: 0.5em;
+}
 
 .rectors h4.head_class {
     text-align: center;
     font-weight: bold;
 }
 
+.rector_card {
+    display: flex;
+    justify-content: center;
+    margin: 0.8em 0;
+}
 
 .rectors div.rector_card p {
+    padding: 5px;
     display: inline-block;
     text-align: center;
     background-color: #424242;
     color: #eee;
     margin: 0 !important;
-    /*/*width: 35%;*/
 }
-.mtu-map{
-    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5))
-    ,url('{{ asset('mtu-map.png') }}');
+
+.rector_card>.period {
+    background: white !important;
+    color: #424242 !important;
+    border: 2px solid #424242;
+}
+
+.mtu-map {
+    background: linear-gradient(rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.5)),
+    url('{{ asset('mtu-map.png') }}');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -281,15 +301,13 @@ h3 {
     transition: all ease 0.5s;
     overflow: hidden;
 }
-.mtu-map a{
+
+.mtu-map a {
     width: 100%;
     height: 100%;
     display: block;
-
-}
-.mtu-map:hover{
 }
 
-
+.mtu-map:hover {}
 </style>
 @endsection
