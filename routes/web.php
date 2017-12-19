@@ -26,22 +26,10 @@ Route::get('/campuslife', function () {
     return view('campusLife');
 });
 
-Route::get('/departments', function () {
+Route::get('/departments/{keyword}','PageController@dep')->name('department');
+Route::get('/departments',function(){
     return view('departments.departmentList');
 });
-
-Route::get('/departments/archi', 'HomeController@archi');
-Route::get('/departments/ceit', 'HomeController@ceit');
-Route::get('/departments/che', 'HomeController@che');
-Route::get('/departments/civil', 'viewsController@dep');
-Route::get('/departments/ec', 'HomeController@ec');
-Route::get('/departments/eng', 'HomeController@eng');
-Route::get('/date_parse_from_format(format, date)ments/ep', 'HomeController@ep');
-Route::get('/departments/ir', 'HomeController@ir');
-Route::get('/departments/maths', 'HomeController@maths');
-Route::get('/departments/mech', 'HomeController@mech');
-Route::get('/departments/mecha', 'HomeController@mecha');
-Route::get('/departments/myan', 'HomeController@myan');
 
 Route::middleware('auth')->group(function () {
     Route::get('/posts', 'viewsController@index')->name('posts.index');
@@ -72,14 +60,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/announcements/edit/{id}','HomeController@editAnn')->name('announcements.edit');
     Route::post('/admin/announcements/update/{id}','HomeController@updateAnn')->name('announcements.update');
     Route::get('/admin/announcements/delete/{id}','HomeController@deleteAnn')->name('announcements.delete');
+    Route::get('/admin/add_staff',function (){
+        return view('admin.addStaff');
+    })->name('admin.add_staff');
+    Route::post('/admin/insert_staff','HomeController@insertStaff')->name('admin.insert_staff');
 });
 
 //api routes
 Route::get('/postsapi', 'postsController@index');
 Auth::routes();
-
-Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/admin/dep/insert','HomeController@insertDep')->name('admin.insertDep');
 app()->bind('postsPhotosController', App\Http\Controllers\postsPhotosController::class);

@@ -5,15 +5,16 @@
 	    <div class="columns">
 	        <div class="column engineering_dept is-6">
 	        	<ul>
-	        		<li><a href="/departments/">Architectural Engineering</a></li>
-	        		<li><a href="/departments/">BioTech</a></li>
-	        		<li><a href="/departments/">Chemical Engineering</a></li>
-	        		<li><a href="/departments/civil">Civil Engineering</a></li>
-	        		<li><a href="/departments/">Computer Engineering & Information Technological</a></li>
-					<li><a href="/departments/">Electrical Power Engineering</a></li>	        		
-	        		<li><a href="/departments/">Electronic Engineering</a></li>
-	        		<li><a href="/departments/">Mechanical Engineering</a></li>
-	        		<li><a href="/departments/">Mechatronic Engineering</a></li>
+					<li><a href="{{ route('department','archi') }}">Architectural Engineering</a></li>
+					<li><a href="{{ route('department','biotech') }}">BioTech</a></li>
+					<li><a href="{{ route('department','chemical') }}">Chemical Engineering</a></li>
+					<li><a href="{{ route('department','civil') }}">Civil Engineering</a></li>
+					<li><a href="{{ route('department','ceit') }}">Computer Engineering & Information Technological</a></li>
+					<li><a href="{{ route('department','ep') }}">Electrical Power Engineering</a></li>
+					<li><a href="{{ route('department','ec') }}">Electronic Engineering</a></li>
+					<li><a href="{{ route('department','mechancial') }}">Mechanical Engineering</a></li>
+					<li><a href="{{ route('department','mechatronic') }}">Mechatronic Engineering</a></li>
+
 	        	</ul>
 	        </div>
 	        <div class="column supporting_dept is-6">
@@ -92,6 +93,10 @@ ul.nav-list>li {
 	color: #ededed;
 }
 
+
+.column ul li a {
+	color: #ededed;
+}
 
 </style>
 @endsection

@@ -20,4 +20,12 @@ class Department extends Model
     public function research(){
         return $this->hasMany('App\Research','dep_id');
     }
+
+    public function courses(){
+        return $this->hasMany('App\Course','dep_id');
+    }
+
+    public function staff (){
+        return $this->hasMany('App\Staff','dep_id');
+    }
 }

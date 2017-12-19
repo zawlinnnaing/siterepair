@@ -10,6 +10,6 @@ class Announcement extends Model
 
     protected $table="tbl_Announce";
     protected $fillable=['content'];
-
+    
 
 }

@@ -190,4 +190,25 @@ class HomeController extends Controller
                 'year'        => 'sometimes|digits:4'
         ];
     }
+
+    public function insertStaff(Request $request){
+        $this->validate($request,['staff_name' => 'required|string',
+                'title' => 'required|string',
+            'research_area' => 'string',
+            'current_research' => 'string',
+            'img_dir' => 'image']);
+
+        $dep = Department::where('name',$request->name)->first();
+        $data = $request->except('img_dir');
+        $staff = $dep->staff()->create($data);
+        if($request->has('img_dir')){
+            $imageName = $request->img_dir->getClientOriginalName();
+            $request->img_dir->move(public_path('staff_photos'),$imageName);
+            $staff->update([
+                'img_dir' => $imageName
+            ]);
+        }
+        Session::flash('msg','Staff Added successfully');
+        return redirect()->back();
+    }
 }
