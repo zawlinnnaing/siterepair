@@ -118,62 +118,70 @@ class HomeController extends Controller
 
     public function depRules()
     {
-        return $rules = array('history' => 'required|string',
+        return $rules = array('name'    => 'required|string',
+                              'history' => 'required|string',
                               'mission' => 'required|string',
                               'vision'  => 'required|string',
 
         );
     }
-    public function insertResearch(Request $request){
-        $this->validate($request,$this->researchRules());
-        $dep = Department::where('name',$request->name)->first();
+
+    public function insertResearch(Request $request)
+    {
+        $this->validate($request, $this->researchRules());
+        $dep = Department::where('name', $request->name)->first();
         $data = $request->except('img_dir');
         $research = $dep->research()->create($data);
-        if($request->has('img_dir')){
+        if ($request->has('img_dir')) {
             $imageName = $request->img_dir->getClientOriginalName();
-            $request->img_dir->move(public_path('uploads'),$imageName);
+            $request->img_dir->move(public_path('uploads'), $imageName);
             $research->update([
                 'img_dir' => $imageName
             ]);
         }
 
-        Session::flash('msg','Research added successfully');
+        Session::flash('msg', 'Research added successfully');
         return redirect()->back();
     }
 
-    public function insertAnnouncement(Request $request){
-        $this->validate($request,[
-            'content'=>'required|string'
+    public function insertAnnouncement(Request $request)
+    {
+        $this->validate($request, [
+            'content' => 'required|string'
         ]);
         $data = $request->all();
         Announcement::create($data);
-        Session::flash('msg','Annoucement added successfully');
+        Session::flash('msg', 'Annoucement added successfully');
         return redirect()->back();
     }
 
-    public function annIndex(){
+    public function annIndex()
+    {
         $announcements = Announcement::all();
-        return view('announcements.index',['announcements' => $announcements]);
+        return view('announcements.index', ['announcements' => $announcements]);
     }
 
-    public function editAnn($id){
-        $announcement=Announcement::find($id)->first();
-        return view('announcements.edit',['announcement' => $announcement]);
+    public function editAnn($id)
+    {
+        $announcement = Announcement::find($id)->first();
+        return view('announcements.edit', ['announcement' => $announcement]);
     }
 
-    public function updateAnn(Request $request,$id){
-        $this->validate($request,[
+    public function updateAnn(Request $request, $id)
+    {
+        $this->validate($request, [
             'content' => 'required|string'
         ]);
         $data = $request->all();
         Announcement::find($id)->update($data);
-        Session::flash('msg','updated successfully');
+        Session::flash('msg', 'updated successfully');
         return redirect()->back();
     }
 
-    public function deleteAnn($id){
+    public function deleteAnn($id)
+    {
         Announcement::find($id)->delete();
-        Session::flash('msg','Deleted successfully');
+        Session::flash('msg', 'Deleted successfully');
         return redirect()->back();
     }
 
@@ -191,24 +199,25 @@ class HomeController extends Controller
         ];
     }
 
-    public function insertStaff(Request $request){
-        $this->validate($request,['staff_name' => 'required|string',
-                'title' => 'required|string',
-            'research_area' => 'string',
-            'current_research' => 'string',
-            'img_dir' => 'image']);
+    public function insertStaff(Request $request)
+    {
+        $this->validate($request, ['staff_name'       => 'required|string',
+                                   'title'            => 'required|string',
+                                   'research_area'    => 'string',
+                                   'current_research' => 'string',
+                                   'img_dir'          => 'image']);
 
-        $dep = Department::where('name',$request->name)->first();
+        $dep = Department::where('name', $request->name)->first();
         $data = $request->except('img_dir');
         $staff = $dep->staff()->create($data);
-        if($request->has('img_dir')){
+        if ($request->has('img_dir')) {
             $imageName = $request->img_dir->getClientOriginalName();
-            $request->img_dir->move(public_path('staff_photos'),$imageName);
+            $request->img_dir->move(public_path('staff_photos'), $imageName);
             $staff->update([
                 'img_dir' => $imageName
             ]);
         }
-        Session::flash('msg','Staff Added successfully');
+        Session::flash('msg', 'Staff Added successfully');
         return redirect()->back();
     }
 }

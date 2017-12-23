@@ -303,7 +303,7 @@
                     <h5>{{ $index->staff_name }}</h5>
                     <p class="secondary"> Current Research: {{ $index->current_research }}</p>
                     <p class="secondary">Research Area: {{ $index->research_area }}</p>
-                    @if(strtolower()$index->title == 'head of departments')
+                    @if(strtolower($index->title) == 'head of departments')
                         <span class="hod_badge">HOD</span>
                     @endif
                 </div>

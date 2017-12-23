@@ -10,18 +10,12 @@
 | contains the "web" middleware group. Now create something great!
 |
  */
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', 'PageController@index')->name('index');
 Route::get('/about', function () {
     return view('about');
 });
-Route::get('/articles', function () {
-    return view('articles');
-});
-Route::get('/detail', function () {
-    return view('detail');
-});
+Route::get('/articles', 'PageController@articles');
+Route::get('/detail/{id}','PageController@postDetail')->name('post_detail');
 Route::get('/campuslife', function () {
     return view('campusLife');
 });
@@ -30,7 +24,7 @@ Route::get('/departments/{keyword}','PageController@dep')->name('department');
 Route::get('/departments',function(){
     return view('departments.departmentList');
 });
-
+Route::post('/searchArticles','PageController@searchArticles')->name('searchArticles');
 Route::middleware('auth')->group(function () {
     Route::get('/posts', 'viewsController@index')->name('posts.index');
     Route::get('/posts/details/{id}', 'viewsController@details')->name('posts.details');

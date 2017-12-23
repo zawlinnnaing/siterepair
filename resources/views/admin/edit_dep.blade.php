@@ -9,6 +9,7 @@
                 @endif
                 <form action="{{ route('admin.updateDep',$dep->name) }}" method="POST">
                     {{ csrf_field() }}
+                    <h5>Department name : {{ ucwords($dep->name) }}</h5>
                     <div class="field">
                         <label class="label">History</label>
                         <div class="control">
@@ -41,8 +42,9 @@
                         @foreach($dep->degrees as $index)
                             <div class="field" id="{{ $index->id.'deg' }}">
                                 <div class="control">
-                                    <input type="text" name="deg_title[{{ $index->id }}}]" value="{{ $index->deg_title }}"/>
-                                    <a class="delete-btn delete-deg" id="{{ $index->id }}">Delete
+                                    <input type="text" name="deg_title[{{ $index->id }}}]"
+                                           value="{{ $index->deg_title }}"/>
+                                    <a class="delete-deg" id="{{ $index->id }}">Delete
                                     </a>
                                 </div>
                             </div>
@@ -55,8 +57,9 @@
                                 <img src="{{ asset('uploads/'.$index->img_dir) }}" class="image is-128x128">
                                 <input type="text" name="title[{{ $index->id }}]" value="{{ $index->title }}">
                                 <input type="text" name="year[{{ $index->id }}]" value="{{ $index->year }}">
-                                <textarea class="textarea" name="description[{{ $index->id }}]">{{ $index->description }}</textarea>
-                                <a class="delete-btn delete-research" id="{{ $index->id }}">Delete
+                                <textarea class="textarea"
+                                          name="description[{{ $index->id }}]">{{ $index->description }}</textarea>
+                                <a class="delete-research" id="{{ $index->id }}">Delete
                                 </a>
                             </div>
                         @endforeach
@@ -74,18 +77,21 @@
         $(document).ready(function () {
             $('.delete-deg').click(function (e) {
                 e.preventDefault();
-                var id = $(this).attr('id');
-                $.get('/admin/delete_deg/'+id,function () {
-                    $('#'+id+'deg').remove();
-                });
+                if (confirm('Are you sure')) {
+                    var id = $(this).attr('id');
+                    $.get('/admin/delete_deg/' + id, function () {
+                        $('#' + id + 'deg').remove();
+                    });
+                }
             });
 
             $('.delete-research').click(function (e) {
-                e.preventDefault();
-                var id = $(this).attr('id');
-                $.get('/admin/delete_research/'+id,function () {
-                    $('#'+id+'research').remove();
-                });
+                if (confirm('Are you sure')) {
+                    var id = $(this).attr('id');
+                    $.get('/admin/delete_research/' + id, function () {
+                        $('#' + id + 'research').remove();
+                    });
+                }
             });
         });
 
