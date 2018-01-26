@@ -42,6 +42,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/admin/update_dep/{keyword}','HomeController@updateDep')->name('admin.updateDep');
     Route::get('/admin/delete_deg/{id}','HomeController@deleteDeg');
     Route::get('/admin/delete_research/{id}','HomeController@deleteResearch');
+    Route::get('/admin/delete_staff/{id}','HomeController@deleteStaff');
     Route::get('/admin/add_research',function(){
         return view('admin.add_research');
     })->name('admin.add_research');
@@ -58,6 +59,11 @@ Route::middleware('auth')->group(function () {
         return view('admin.addStaff');
     })->name('admin.add_staff');
     Route::post('/admin/insert_staff','HomeController@insertStaff')->name('admin.insert_staff');
+    Route::get('/admin/add_course',function(){
+        return view('admin.add_course');
+    })->name('admin.add_course');
+    Route::post('/admin/insert_course','HomeController@insertCourse')->name('admin.insert_course');
+    Route::get('/admin/delete_course/{id}','HomeController@deleteCourse')->name('admin.delete_course');
 });
 
 //api routes

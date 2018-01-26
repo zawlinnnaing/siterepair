@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Announcement;
+use App\Course;
 use App\Degree;
 use App\Department;
 use App\Research;
+use App\Staff;
 use Illuminate\Http\Request;
 use Session;
 
@@ -18,7 +20,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        // $this->middleware('auth');
+        $this->middleware('auth');
     }
 
     /**
@@ -56,7 +58,7 @@ class HomeController extends Controller
     public function editDep($keyword)
     {
         if ($keyword) {
-            $dep = Department::where('name', $keyword)->with(['research', 'degrees'])->first();
+            $dep = Department::where('name', $keyword)->with(['research', 'degrees', 'staff','courses'])->first();
             if (!empty($dep)) {
                 return view('admin.edit_dep')->with('dep', $dep);
             }
@@ -77,6 +79,7 @@ class HomeController extends Controller
                 ]);
             }
         }
+//        Updating Research
         if (!empty($request->title)) {
             foreach ($request->title as $key => $value) {
                 Research::find($key)->update([
@@ -99,6 +102,53 @@ class HomeController extends Controller
 
             }
         }
+
+    //Update Staff info
+        if (!empty($request->staff_name)) {
+            foreach ($request->staff_name as $key => $value) {
+                Staff::find($key)->update([
+                    'staff_name' => $value
+                ]);
+            }
+        }
+        if (!empty($request->staff_title)) {
+            foreach ($request->staff_title as $key => $value) {
+                Staff::find($key)->update([
+                    'title' => $value
+                ]);
+            }
+        }
+        if (!empty($request->research_area)) {
+            foreach ($request->research_area as $key => $value) {
+                Staff::find($key)->update([
+                    'research_area' => $value
+                ]);
+            }
+        }
+        if (!empty($request->current_research)) {
+            foreach ($request->current_research as $key => $value) {
+                Staff::find($key)->update([
+                    'current_research' => $value
+                ]);
+            }
+        }
+
+        //Update Course
+        if(!empty($request->course_title)){
+            foreach ($request->course_title as $key => $value) {
+                Course::find($key)->update([
+                    'title' => $value
+                ]);
+            }
+        }
+        if(!empty($request->course_number)){
+            foreach ($request->course_number as $key => $value) {
+                Course::find($key)->update([
+                    'course_number' => $value
+                ]);
+            }
+        }
+
         Session::flash('msg', 'Department updated successfully');
         return redirect()->back();
 
@@ -115,6 +165,14 @@ class HomeController extends Controller
         Research::find($id)->delete();
     }
 
+    public function deleteStaff($id)
+    {
+        Staff::find($id)->delete();
+    }
+
+    public function deleteCourse($id){
+        Course::find($id)->delete();
+    }
 
     public function depRules()
     {
@@ -218,6 +276,18 @@ class HomeController extends Controller
             ]);
         }
         Session::flash('msg', 'Staff Added successfully');
+        return redirect()->back();
+    }
+    public function insertCourse(Request $request){
+        $this->validate($request,['title' => 'required|string',
+            'course_type' => 'required|string',
+            'course_number' => 'required|string|alpha_dash',
+            'course_year' => 'required|string'
+            ]);
+        $dep = Department::where('name' , $request->name)->first();
+        $data = $request->all();
+        $dep->courses()->create($data);
+        Session::flash('msg','Course added successfully');
         return redirect()->back();
     }
 }
