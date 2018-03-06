@@ -2,9 +2,9 @@
 @section('content')
     <div id="landing">
         @include('header')
-        <div class="detail_button">
-            <h5>Read More</h5>
-        </div>
+        {{--<div class="detail_button">--}}
+            {{--<h5>Read More</h5>--}}
+        {{--</div>--}}
     </div>
     <div class="events column is-10">
         <h4>Headline Events</h4>
@@ -32,9 +32,11 @@
     <div class="staff_info">
         <div class="image is-64x64">
             <img src="{{ asset('/dept.png') }}">
+            <h4> 8 main Departments</h4>
         </div>
         <div class="image is-64x64">
             <img src="{{ asset('/dept.png') }}">
+            <h4> 6 supporting Departments </h4>
         </div>
     </div>
     <div class="edge_down">
@@ -81,7 +83,7 @@
             </div>
         @endforeach
         <div class="column" id="morearticles_button">
-            <h5>See more articles</h5>
+            <a href="{{ route('articles') }}">See more articles</a>
         </div>
     </div>
     <div class="announcements_and_upcommingevents column is-6">
@@ -160,14 +162,19 @@
             text-align: center;
         }
 
-        #morearticles_button > h5, #readmore_headlinebutton > h5 {
+        #morearticles_button a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        #morearticles_button > a, #readmore_headlinebutton > h5 {
             border: 2px solid black;
             display: inline-block;
             margin: 0 auto;
             padding: 10px 20px;
         }
 
-        #morearticles_button > h5:hover {
+        #morearticles_button > a:hover {
             background-color: #333;
             color: white;
         }
@@ -179,7 +186,7 @@
             margin: 20px !important;
         }
 
-        #readmore_headlinebutton > h5:hover {
+        #readmore_headlinebutton > a:hover {
             background-color: #333;
             color: white;
         }
@@ -264,6 +271,10 @@
 
         .text_div a:hover {
             color: #BDBDBD;
+        }
+
+        .staff_info h4 {
+            text-align: center;
         }
     </style>
 

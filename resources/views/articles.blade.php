@@ -2,9 +2,9 @@
     <div id="landing">
         <div class="layer">
             @include('header')
-            <div class="detail_button">
-                <h5>Read More</h5>
-            </div>
+            {{--<div class="detail_button">--}}
+                {{--<h5>Read More</h5>--}}
+            {{--</div>--}}
         </div>
     </div>
     <div class="articles column is-10">

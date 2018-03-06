@@ -50,14 +50,14 @@
         }
 
         .cover_img {
-            @foreach($post->photos as $index)
-                @if($index->forshow)
-                 background: url("{{ asset('uploads/'.$index->img_dir) }}");
-                @break
-                @else
-                 background: url("{{ asset('uploads/no-image-available.png') }}"),linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
-                @endif
-            @endforeach
+            {{--@foreach($post->photos as $index)--}}
+                {{--@if($index->forshow == true)--}}
+                 {{--background: url("{{ asset('uploads/'.$index->img_dir) }}") , linear-gradient(rgba(0,0,4,0.5),rgba(0,0,4,0.5));--}}
+                {{--@break--}}
+                {{--@else--}}
+                 background: url("{{ asset('uploads/no-image-available.jpg') }}"),linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
+                {{--@endif--}}
+            {{--@endforeach--}}
             background-repeat: no-repeat;
             background-position:center;
             height: 50vh;

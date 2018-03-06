@@ -30,4 +30,9 @@ class PageController extends Controller
         $announcements = Announcement::paginate(5);
         return view('articles',['posts' => $posts , 'announcements' => $announcements]);
     }
+
+    public function departmentList (){
+        $deps = Department::all();
+        return view('departments.departmentList',['deps' => $deps]);
+    }
 }

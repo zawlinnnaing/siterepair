@@ -14,16 +14,14 @@ Route::get('/', 'PageController@index')->name('index');
 Route::get('/about', function () {
     return view('about');
 });
-Route::get('/articles', 'PageController@articles');
+Route::get('/articles', 'PageController@articles')->name('articles');
 Route::get('/detail/{id}','PageController@postDetail')->name('post_detail');
 Route::get('/campuslife', function () {
     return view('campusLife');
 });
 
 Route::get('/departments/{keyword}','PageController@dep')->name('department');
-Route::get('/departments',function(){
-    return view('departments.departmentList');
-});
+Route::get('/departments','PageController@departmentList');
 Route::post('/searchArticles','PageController@searchArticles')->name('searchArticles');
 Route::middleware('auth')->group(function () {
     Route::get('/posts', 'viewsController@index')->name('posts.index');

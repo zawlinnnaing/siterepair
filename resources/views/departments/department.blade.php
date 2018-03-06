@@ -2,7 +2,7 @@
     <div id="landing">
 
         @include('header')
-        <h4>The Civil</h4>
+        <h4>{{ ucwords($dep->name) }}</h4>
         <div class="brief_history column is-8">
             <p>{{ $dep->history }}</p>
         </div>
@@ -257,9 +257,9 @@
                     <h5>{{ $index->staff_name }}</h5>
                     <p class="secondary"> Current Research: {{ $index->current_research }}</p>
                     <p class="secondary">Research Area: {{ $index->research_area }}</p>
-                    @if(strtolower($index->title) == 'head of departments')
-                        <span class="hod_badge">HOD</span>
-                    @endif
+                    {{--@if(strtolower($index->title) == 'Head of Department')--}}
+                        {{--<span class="hod_badge">HOD</span>--}}
+                    {{--@endif--}}
                 </div>
             </div>
         @endforeach

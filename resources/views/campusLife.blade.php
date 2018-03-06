@@ -107,7 +107,7 @@
 @endsection @section('style')
 <style>
 #landing {
-    background: linear-gradient(rgba(255, 255, 255, .5), rgba(255, 255, 255, .5)),
+    background: linear-gradient(rgba(150, 150, 150, .5), rgba(150, 150, 150, .5)),
     url("{{ asset('campus-life.jpg') }}") center;
     -webkit-background-size: cover;
     background-size: cover;
