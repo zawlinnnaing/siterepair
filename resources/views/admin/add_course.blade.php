@@ -1,4 +1,11 @@
 @extends('layouts.app')
+@section('style')
+    <style type="text/css">
+        #add_btn{
+            margin: 2em 0em;
+        }
+    </style>
+@endsection
 @section('content')
     <div class="columns">
         @include('depSideBar')
@@ -12,25 +19,33 @@
                 <div class="field">
                     @include('admin.selectDep')
                 </div>
-                <div class="field">
-                    <label class="label">
-                        Course title
-                    </label>
-                    <div class="control">
-                        <input type="text" name="title" required class="input">
-                        @if($errors->has('title'))
-                            <p class="help is-danger">{{ $errors->first('title') }}</p>
-                        @endif
+                <div class="wrapper">
+                    <div class="name_and_number">
+                        <div class="field">
+                            <label class="label">
+                                Course title
+                            </label>
+                            <div class="control">
+                                <input type="text" name="title[]" required class="input">
+                                @if($errors->has('title'))
+                                    <p class="help is-danger">{{ $errors->first('title') }}</p>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">Course Number</label>
+                            <div class="control">
+                                <input type="text" name="course_number[]" class="input" required
+                                       placeholder="ME-20134,etc..."> @if($errors->has('course_number'))
+                                    <p class="help is-danger">{{ $errors->first('course_number') }}</p>
+                                @endif
+                            </div>
+                        </div>
+                        {{--<button class="remove_btn">Remove this course</button>--}}
                     </div>
                 </div>
-                <div class="field">
-                    <label class="label">Course Number</label>
-                    <div class="control">
-                        <input type="text" name="course_number" class="input" required placeholder="ME-20134,etc..."> @if($errors->has('course_number'))
-                            <p class="help is-danger">{{ $errors->first('course_number') }}</p>
-                        @endif
-                    </div>
-                </div>
+                <button id="add_btn">Add More Course</button>
+
                 <div class="field">
                     <label class="label">Course Type</label>
                     <div class="control">
@@ -63,4 +78,44 @@
             </form>
         </div>
     </div>
+@endsection
+@section('script')
+    <script>
+        $(document).ready(function () {
+            var wrapper = $(".wrapper");
+            var addBtn = $("#add_btn");
+            $("#add_btn").on("click", function (e) {
+                e.preventDefault();
+                $(wrapper).append("<div class=\"name_and_number\">\n" +
+                    "                        <div class=\"field\">\n" +
+                    "                            <label class=\"label\">\n" +
+                    "                                Course title\n" +
+                    "                            </label>\n" +
+                    "                            <div class=\"control\">\n" +
+                    "                                <input type=\"text\" name=\"title[]\" required class=\"input\">\n" +
+                    "                                @if($errors->has('title'))\n" +
+                    "                                    <p class=\"help is-danger\">{{ $errors->first('title') }}</p>\n" +
+                    "                                @endif\n" +
+                    "                            </div>\n" +
+                    "                        </div>\n" +
+                    "                        <div class=\"field\">\n" +
+                    "                            <label class=\"label\">Course Number</label>\n" +
+                    "                            <div class=\"control\">\n" +
+                    "                                <input type=\"text\" name=\"course_number[]\" class=\"input\" required\n" +
+                    "                                       placeholder=\"ME-20134,etc...\"> @if($errors->has('course_number'))\n" +
+                    "                                    <p class=\"help is-danger\">{{ $errors->first('course_number') }}</p>\n" +
+                    "                                @endif\n" +
+                    "                            </div>\n" +
+                    "                        </div>\n" +
+                    "                        <button class=\"remove_btn\">Remove this course</button>\n" +
+                    "                    </div>");
+                // $(wrapper).append("<h1>Test</h1>");
+            });
+            $(wrapper).on("click", ".remove_btn", function (e) {
+                e.preventDefault();
+                $(this).parent('div').remove();
+
+            });
+        });
+    </script>
 @endsection

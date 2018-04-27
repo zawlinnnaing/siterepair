@@ -279,14 +279,23 @@ class HomeController extends Controller
         return redirect()->back();
     }
     public function insertCourse(Request $request){
-        $this->validate($request,['title' => 'required|string',
+        $this->validate($request,['title' => 'required|array',
             'course_type' => 'required|string',
-            'course_number' => 'required|string|alpha_dash',
+            'course_number' => 'required|array',
             'course_year' => 'required|string'
             ]);
+
         $dep = Department::where('name' , $request->name)->first();
-        $data = $request->all();
-        $dep->courses()->create($data);
+//        $data = $request->except('title','course_number');
+        foreach ($request->title as $key => $value){
+            $dep->courses()->create([
+                'title' => $value,
+                'course_number'=>$request->course_number[$key],
+                'course_type' => $request->course_type,
+                'course_year' => $request->course_year
+            ]);
+        }
+//        $dep->courses()->create($data);
         Session::flash('msg','Course added successfully');
         return redirect()->back();
     }
