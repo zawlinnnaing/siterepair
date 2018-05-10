@@ -541,7 +541,7 @@ p.overlay_text {
     padding-right: 0;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    /*justify-content: center;*/
 }
 
 .staff {

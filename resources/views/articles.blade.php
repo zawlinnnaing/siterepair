@@ -1,11 +1,6 @@
 @extends('layout') @section('content')
     <div id="landing">
-        <div class="layer">
-            @include('header')
-            {{--<div class="detail_button">--}}
-                {{--<h5>Read More</h5>--}}
-            {{--</div>--}}
-        </div>
+        @include('header')
     </div>
     <div class="articles column is-10">
         <div class="header">
@@ -32,7 +27,8 @@
             </div>
         @endforeach
         {{ $posts->links() }}
-        <div class="header">
+    </div>
+<!--         <div class="header">
             <h2>Announcements
             </h2></div>
         @foreach($announcements as $announcement)
@@ -49,7 +45,7 @@
             </div>
         @endforeach
         {{ $announcements->links() }}
-    </div>
+    </div> -->
 @endsection @section('style')
     <style type="text/css">
         .articles {

@@ -211,7 +211,7 @@
             border-top-left-radius: 10px;
             border-bottom-left-radius: 10px;
             color: white;
-            width: 50px;
+            /*width: 50px;*/
             background: black;
             float: left;
             clear: none;
