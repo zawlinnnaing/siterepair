@@ -26,7 +26,7 @@ class PageController extends Controller
 
     }
     public function articles(){
-        $posts = Post::paginate(5);
+        $posts = Post::orderBy('created_at','desc')->paginate(5);
         $announcements = Announcement::paginate(5);
         return view('articles',['posts' => $posts , 'announcements' => $announcements]);
     }

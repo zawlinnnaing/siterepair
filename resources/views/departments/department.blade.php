@@ -620,7 +620,7 @@ p.overlay_text {
 baguetteBox.run('.gallery', {});
 </script>
 <script type="text/javascript">
-// var navbar = document.getElementById("secondary_navbar");
+    // Fade In secondary Navbar effect
 var navbar = $("#secondary_navbar");
 var sticky = $("#secondary_navbar").offset().top;
 $(window).scroll(function() {
@@ -632,7 +632,14 @@ $(window).scroll(function() {
         navbar.fadeOut(500);
     }
 });
-// var sticky = navbar.offsetTop;
-// var sticky = document.getElementById("mission_vision").offsetTop;
+
+// scroll to anchore effect
+$('a[href^="#"]').on('click', function (event) {
+    event.preventDefault();
+
+    $('html, body').animate({
+        scrollTop: $($.attr(this, 'href')).offset().top
+    }, 500);
+});
 </script>
 @endsection("script")
