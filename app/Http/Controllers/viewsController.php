@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\postsController;
 use App\Http\Controllers\postsPhotoController;
+use App\Department;
 class viewsController extends Controller
 {
      protected $dataControllerPosts,$dataControllerPhotos;
@@ -39,10 +40,12 @@ class viewsController extends Controller
  	}
 
     public function createDep(){
-        return view('admin.createDep');
+        $departments = Department::all();
+        return view('admin.createDep')->with(['departments' => $departments]);
     }
 
     public function dep(){
+
         return view('departments.civil');
     }
  	

@@ -7,13 +7,22 @@
                 @if(Session::has('msg'))
                     <p class="is-success">{{ Session::get('msg') }}</p>
                 @endif
-                <form action="{{ route('admin.insertDep') }}" method="POST">
+                <form action="{{ route('admin.insertDep') }}" method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="field">
                         <label class="label">Name</label>
                         <div class="control">
                             <input type="text" name="name" class="input" required> @if($errors->has('name'))
                                 <p class="help is-danger">{{ $errors->first('name') }}</p>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Department Image</label>
+                        <div class="control">
+                            <input type="file" name="img_dir">
+                            @if($errors->has('img_dir'))
+                                <p class="help is-danger">{{ $errors->first('img_dir') }}</p>
                             @endif
                         </div>
                     </div>

@@ -36,8 +36,13 @@ class HomeController extends Controller
     public function insertDep(Request $request)
     {
         $this->validate($request, $this->depRules());
-        $data = $request->all();
-        Department::create($data);
+        $data = $request->except('img_dir');
+        $department = Department::create($data);
+        $imageName = $request->img_dir->getClientOriginalName();
+        $request->img_dir->move(public_path('uploads'), $imageName);
+        $department->update([
+            'img_dir' => $imageName
+        ]);
         Session::flash('msg', 'Department added successfully');
         return redirect()->route('admin.createDep');
 
@@ -58,9 +63,10 @@ class HomeController extends Controller
     public function editDep($keyword)
     {
         if ($keyword) {
-            $dep = Department::where('name', $keyword)->with(['research', 'degrees', 'staff','courses'])->first();
+            $departments = Department::all();
+            $dep = Department::where('name', $keyword)->with(['research', 'degrees', 'staff', 'courses'])->first();
             if (!empty($dep)) {
-                return view('admin.edit_dep')->with('dep', $dep);
+                return view('admin.edit_dep')->with(['dep' => $dep, 'departments' => $departments]);
             }
         }
         return redirect()->back();
@@ -103,7 +109,7 @@ class HomeController extends Controller
             }
         }
 
-    //Update Staff info
+        //Update Staff info
         if (!empty($request->staff_name)) {
             foreach ($request->staff_name as $key => $value) {
                 Staff::find($key)->update([
@@ -134,14 +140,14 @@ class HomeController extends Controller
         }
 
         //Update Course
-        if(!empty($request->course_title)){
+        if (!empty($request->course_title)) {
             foreach ($request->course_title as $key => $value) {
                 Course::find($key)->update([
                     'title' => $value
                 ]);
             }
         }
-        if(!empty($request->course_number)){
+        if (!empty($request->course_number)) {
             foreach ($request->course_number as $key => $value) {
                 Course::find($key)->update([
                     'course_number' => $value
@@ -170,7 +176,8 @@ class HomeController extends Controller
         Staff::find($id)->delete();
     }
 
-    public function deleteCourse($id){
+    public function deleteCourse($id)
+    {
         Course::find($id)->delete();
     }
 
@@ -180,7 +187,7 @@ class HomeController extends Controller
                               'history' => 'required|string',
                               'mission' => 'required|string',
                               'vision'  => 'required|string',
-
+                              'img_dir' => 'required|mimes:jpeg,bmp,png,gif,jpg|max:2000'
         );
     }
 
@@ -278,25 +285,27 @@ class HomeController extends Controller
         Session::flash('msg', 'Staff Added successfully');
         return redirect()->back();
     }
-    public function insertCourse(Request $request){
-        $this->validate($request,['title' => 'required|array',
-            'course_type' => 'required|string',
-            'course_number' => 'required|array',
-            'course_year' => 'required|string'
-            ]);
 
-        $dep = Department::where('name' , $request->name)->first();
+    public function insertCourse(Request $request)
+    {
+        $this->validate($request, ['title'         => 'required|array',
+                                   'course_type'   => 'required|string',
+                                   'course_number' => 'required|array',
+                                   'course_year'   => 'required|string'
+        ]);
+
+        $dep = Department::where('name', $request->name)->first();
 //        $data = $request->except('title','course_number');
-        foreach ($request->title as $key => $value){
+        foreach ($request->title as $key => $value) {
             $dep->courses()->create([
-                'title' => $value,
-                'course_number'=>$request->course_number[$key],
-                'course_type' => $request->course_type,
-                'course_year' => $request->course_year
+                'title'         => $value,
+                'course_number' => $request->course_number[ $key ],
+                'course_type'   => $request->course_type,
+                'course_year'   => $request->course_year
             ]);
         }
 //        $dep->courses()->create($data);
-        Session::flash('msg','Course added successfully');
+        Session::flash('msg', 'Course added successfully');
         return redirect()->back();
     }
 }

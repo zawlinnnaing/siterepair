@@ -63,8 +63,9 @@ class postsController extends Controller
         $post = Post::find($id);
         $this->deletePhoto($post);
         $post->delete();
-//         Session::flash('success_msg','Post delected successfully');
-        // return redirect()->route('posts.index');
+//       Should be modified for api implementation
+        Session::flash('success_msg','Post deleted successfully');
+         return redirect()->route('posts.index');
     }
 
     public function rules(Request $request)

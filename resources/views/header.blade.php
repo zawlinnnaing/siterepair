@@ -1,6 +1,6 @@
 <div class="header">
     <div>
-    <div id="header_logo"><img src="/mtu.png"></div>
+    <div id="header_logo"><img src="{{ asset('MTU.png') }}"></div>
     <h3 class="title">Mandalay <br>Technological <br>University</h3>
     </div>
         <ul class="is-hidden-mobile nav-list">

@@ -16,9 +16,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
-        $dep = Department::all();
+         $dep = Department::all();
         error_reporting(E_ALL ^ E_NOTICE);
-        View::share('departments',$dep);
+         View::share('departments',$dep);
         
     }
 

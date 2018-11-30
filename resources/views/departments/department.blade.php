@@ -4,7 +4,7 @@
     @include('header')
     <h4>{{ ucwords($dep->name) }}</h4>
     <div class="brief_history column is-8">
-        <p>{{ $dep->history }}</p>
+        <p>{!! $dep->history !!}}</p>
     </div>
     <div class="detail_button">
         <h5>Read More</h5>
@@ -28,7 +28,7 @@
             <div class="column content">
                 <span>M</span>
                 <h4>ission</h4>
-                <p>{{ $dep->mission }}</p>
+                <p>{!! $dep->mission !!}</p>
             </div>
             <div class="column is-2"></div>
         </div>
@@ -37,7 +37,7 @@
             <div class="column align_right content">
                 <span class="float_right">V</span>
                 <h4 class="align_right">ision</h4>
-                <p class="align_right">{{ $dep->vision }}</p>
+                <p class="align_right">{!! $dep->vision !!}}</p>
             </div>
             <div class="column is-2 bg_black"></div>
         </div>
@@ -260,7 +260,11 @@
     align-items: center;
     justify-content: flex-start;
     color: #eee;
+    @if(!isset($dep->img_dir))
     background-image: url('/../civil.png') !important;
+    @else
+    background-image: url("{{ asset("uploads/".$dep->img_dir) }}");
+    @endif
 }
 
 .layer {
@@ -472,8 +476,8 @@ p.overlay_text {
     z-index: 3;
     background: #333;
     border-radius: 3px;
-    height: 80vh;
-    width: 35vh;
+    max-height: 80vh;
+    width: auto;
 }
 
 .course_duration:hover .course_detail {
@@ -521,6 +525,7 @@ p.overlay_text {
 .staff-info {
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
     justify-content: center;
 }
 
@@ -541,7 +546,7 @@ p.overlay_text {
     padding-right: 0;
     display: flex;
     flex-direction: row;
-    /*justify-content: center;*/
+    justify-content: center;
 }
 
 .staff {
@@ -579,7 +584,7 @@ p.overlay_text {
     /*opacity: 0;
     transition: opacity ease 2s;*/
     position: sticky;
-    z-index: 2;
+    z-index: 100;
     top: 0;
     width: 100%;
     display: flex;
@@ -620,7 +625,7 @@ p.overlay_text {
 baguetteBox.run('.gallery', {});
 </script>
 <script type="text/javascript">
-    // Fade In secondary Navbar effect
+// var navbar = document.getElementById("secondary_navbar");
 var navbar = $("#secondary_navbar");
 var sticky = $("#secondary_navbar").offset().top;
 $(window).scroll(function() {
@@ -632,14 +637,7 @@ $(window).scroll(function() {
         navbar.fadeOut(500);
     }
 });
-
-// scroll to anchore effect
-$('a[href^="#"]').on('click', function (event) {
-    event.preventDefault();
-
-    $('html, body').animate({
-        scrollTop: $($.attr(this, 'href')).offset().top
-    }, 500);
-});
+// var sticky = navbar.offsetTop;
+// var sticky = document.getElementById("mission_vision").offsetTop;
 </script>
 @endsection("script")

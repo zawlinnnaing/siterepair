@@ -19,6 +19,7 @@ class CreateTableDepartments extends Migration
             $table->text('history');
             $table->text('mission');
             $table->text('vision');
+            $table->string('img_dir');
         });
     }
 

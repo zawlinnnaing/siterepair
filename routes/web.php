@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
  */
+
 Route::get('/', 'PageController@index')->name('index');
 Route::get('/about', function () {
     return view('about');
@@ -42,10 +43,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/delete_research/{id}','HomeController@deleteResearch');
     Route::get('/admin/delete_staff/{id}','HomeController@deleteStaff');
     Route::get('/admin/add_research',function(){
-        return view('admin.add_research');
+        $departments = \App\Department::all();
+        return view('admin.add_research')->with(['departments' => $departments]);
     })->name('admin.add_research');
     Route::post('/admin/insert_research','HomeController@insertResearch')->name('admin.insert_research');
     Route::get('/admin/add_announcement',function (){
+        $departments = \App\Department::all();
         return view('announcements.add');
     })->name('announcements.add');
     Route::post('/admin/insert_announcement','HomeController@insertAnnouncement')->name('announcements.insert');

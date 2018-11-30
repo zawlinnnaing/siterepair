@@ -19,7 +19,7 @@
                         <td>{{ $post->publisher }}</td>
                         <td>{{ $post->created_at }}</td>
                         <td><a href="{{ route('posts.edit',['id' => $post->id]) }}" class="button edit">Edit</a>
-                            <a href="{{ route('posts.delete',['id' => $post->id]) }}" class="button delete">Delete</a>
+                            <a href="{{ route('posts.delete',['id' => $post->id]) }}" class="button delete-btn delete">Delete</a>
                         </td>
                     </tr>
                 @endforeach
@@ -59,3 +59,6 @@
         }
     </style>
 @endsection
+@section('script')
+
+    @endsection

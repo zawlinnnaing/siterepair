@@ -11,18 +11,15 @@
         <div class="event columns">
             <div class="column">
                 <div class="image is-16by9">
-                    <img src="{{ asset('/mtucover.jpg') }}">
+                    <img src="{{ asset('/uploads/admission_form.jpg') }}">
                 </div>
             </div>
             <div class="column">
-                <h3>The Title</h3>
-                <p>One summer afternoon, a group of recent college graduates decided to visit their favorite professor
-                    at his home. The grads
-                    had been out of school for about a year and they were each making their foray into the quote-unquote
-                    “real world” and
-                    dealing with all of the frustrations and confusion…</p>
+                <h3>2018-2019 Academic Year MTU Entrance form</h3>
+                <p class="mmfont">၁။	၂၀၁၈-၂၀၁၉ ပညာသင်နှစ်အတွက် မန္တလေးနည်းပညာတက္ကသိုလ် ၏ အင်ဂျင်နီယာ နှင့်  ဗိသုကာ သင်တန်း ၊ ဇီဝနည်းပညာသင်တန်းများကို အောက်ဖော်ပြပါ အထူးပြုဘာသာရပ်များအလိုက်  ဖွင့်လှစ်သွားမည် ဖြစ်ပါသည်။...
+                    <a href="/MTU( Form) (1).docx">Download application form here</a></p>
                 <div id="readmore_headlinebutton">
-                    <h5>Read More</h5>
+                    <h5><a href="/detail/1">Read More</a></h5>
                 </div>
             </div>
         </div>
@@ -32,7 +29,7 @@
     <div class="staff_info">
         <div class="image is-64x64">
             <img src="{{ asset('/dept.png') }}">
-            <h4> 8 main Departments</h4>
+            <h4> 11 main Departments</h4>
         </div>
         <div class="image is-64x64">
             <img src="{{ asset('/dept.png') }}">
@@ -76,8 +73,8 @@
                 </div>
                 <div class="text_div column">
                     <a href="{{ route('post_detail',$post->id) }}">
-                        <h3>{{$post->title}}</h3>
-                        <p>{{ $post->content }}</p>
+                        <h3 class='mmfont'>{{$post->title}}</h3>
+                        <p class='mmfont'>{{ $post->content }}</p>
                     </a>
                 </div>
             </div>
@@ -211,7 +208,6 @@
             border-top-left-radius: 10px;
             border-bottom-left-radius: 10px;
             color: white;
-            /*width: 50px;*/
             background: black;
             float: left;
             clear: none;
@@ -257,12 +253,19 @@
         }
 
         /*edges and staff*/
+        @supports(-webkit-line-clamp: 3 ){
         .text_div p {
             display: -webkit-box;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
+    }
+
+        .text_div p {
+            max-height: 250px;
+            overflow: hidden;
+            }
 
         .text_div a {
             text-decoration: none;
@@ -275,6 +278,13 @@
 
         .staff_info h4 {
             text-align: center;
+        }
+        #readmore_headlinebutton h5 a{
+             text-decoration: none;
+             color: #333;
+        }
+        #readmore_headlinebutton:hover {
+
         }
     </style>
 

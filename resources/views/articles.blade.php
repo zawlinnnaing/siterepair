@@ -1,6 +1,6 @@
 @extends('layout') @section('content')
     <div id="landing">
-        @include('header')
+            @include('header')
     </div>
     <div class="articles column is-10">
         <div class="header">
@@ -14,9 +14,9 @@
             <div class="item" style="background: url('{{ asset('civil.png') }}');">
                 <a href="{{ route('post_detail',$post->id) }}">
                     <div class="columns">
-                        <div class="column">
-                            <h4 style="font-weight: bold;">{{ $post->title }}</h4>
-                            <p>{{ $post->content }}</p>
+                        <div class="column content">
+                            <h4 style="font-weight: bold;" class="mmfont">{{ $post->title }}</h4>
+                            <pre class="mmfont">{{ $post->content }}</pre>
                         </div>
                         <div class="column is-2">
                             <p>Date: {{ date('Y-M-d',strtotime($post->created_at)) }}</p>
@@ -26,9 +26,8 @@
                 </a>
             </div>
         @endforeach
-        {{ $posts->links() }}
-    </div>
-<!--         <div class="header">
+        <!-- {{ $posts->links() }} -->
+        <!-- <div class="header">
             <h2>Announcements
             </h2></div>
         @foreach($announcements as $announcement)
@@ -74,7 +73,6 @@
         }
 
         .item {
-            /*height: 500px;*/
             background-size: cover !important;
             background-position: center center !important;
             background-repeat: no-repeat !important;
@@ -98,6 +96,18 @@
             border: 1px solid #bdbdbd;*/
             /*  display: inline;
         */
+        }
+
+        .content{  
+            max-height: 300px;
+            overflow-y: -webkit-paged-y;
+        }
+        .content pre{
+            white-space: -moz-pre-wrap; /* Firefox */
+            white-space: -pre-wrap; /* ancient Opera */
+            white-space: -o-pre-wrap; /* newer Opera */
+            white-space: pre-wrap; /* Chrome; W3C standard */
+            word-wrap: break-word;
         }
 
         .item a {
