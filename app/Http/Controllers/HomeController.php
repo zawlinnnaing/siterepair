@@ -36,13 +36,12 @@ class HomeController extends Controller
     public function insertDep(Request $request)
     {
         $this->validate($request, $this->depRules());
-        $data = $request->except('img_dir');
-        $department = Department::create($data);
+        $data = $request->all();
+
         $imageName = $request->img_dir->getClientOriginalName();
         $request->img_dir->move(public_path('uploads'), $imageName);
-        $department->update([
-            'img_dir' => $imageName
-        ]);
+        $data['img_dir'] = $imageName;
+        $department = Department::create($data);
         Session::flash('msg', 'Department added successfully');
         return redirect()->route('admin.createDep');
 
@@ -183,11 +182,12 @@ class HomeController extends Controller
 
     public function depRules()
     {
-        return $rules = array('name'    => 'required|string',
-                              'history' => 'required|string',
-                              'mission' => 'required|string',
-                              'vision'  => 'required|string',
-                              'img_dir' => 'required|mimes:jpeg,bmp,png,gif,jpg|max:2000'
+        return $rules = array(
+            'name'    => 'required|string',
+            'history' => 'required|string',
+            'mission' => 'required|string',
+            'vision'  => 'required|string',
+            'img_dir' => 'required|mimes:jpeg,bmp,png,gif,jpg|max:2000'
         );
     }
 
@@ -257,20 +257,23 @@ class HomeController extends Controller
 
     public function researchRules()
     {
-        return ['img_dir'     => 'sometimes|mimes:jpeg,bmp,png,gif,jpg|max:2000',
-                'title'       => 'sometimes|required|string',
-                'description' => 'sometimes|string|nullable',
-                'year'        => 'sometimes|digits:4'
+        return [
+            'img_dir'     => 'sometimes|mimes:jpeg,bmp,png,gif,jpg|max:2000',
+            'title'       => 'sometimes|required|string',
+            'description' => 'sometimes|string|nullable',
+            'year'        => 'sometimes|digits:4'
         ];
     }
 
     public function insertStaff(Request $request)
     {
-        $this->validate($request, ['staff_name'       => 'required|string',
-                                   'title'            => 'required|string',
-                                   'research_area'    => 'string',
-                                   'current_research' => 'string',
-                                   'img_dir'          => 'image']);
+        $this->validate($request, [
+            'staff_name'       => 'required|string',
+            'title'            => 'required|string',
+            'research_area'    => 'string',
+            'current_research' => 'string',
+            'img_dir'          => 'image'
+        ]);
 
         $dep = Department::where('name', $request->name)->first();
         $data = $request->except('img_dir');
@@ -288,10 +291,11 @@ class HomeController extends Controller
 
     public function insertCourse(Request $request)
     {
-        $this->validate($request, ['title'         => 'required|array',
-                                   'course_type'   => 'required|string',
-                                   'course_number' => 'required|array',
-                                   'course_year'   => 'required|string'
+        $this->validate($request, [
+            'title'         => 'required|array',
+            'course_type'   => 'required|string',
+            'course_number' => 'required|array',
+            'course_year'   => 'required|string'
         ]);
 
         $dep = Department::where('name', $request->name)->first();
@@ -299,7 +303,7 @@ class HomeController extends Controller
         foreach ($request->title as $key => $value) {
             $dep->courses()->create([
                 'title'         => $value,
-                'course_number' => $request->course_number[ $key ],
+                'course_number' => $request->course_number[$key],
                 'course_type'   => $request->course_type,
                 'course_year'   => $request->course_year
             ]);

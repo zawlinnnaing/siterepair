@@ -14,46 +14,48 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/index.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/admin.css') }}">
     <style type="text/css">
-    .header {
-        background-color: #42A5F5;
-        color: white;
-        padding: 0 !important;
-    }
-    .header ul li a:hover{
-        background-color: white;
-        color: black !important;
-    }
-    .header ul {
-        margin: 0;
-    }
+        .header {
+            background-color: #42A5F5;
+            color: white;
+            padding: 0 !important;
+        }
+
+        .header ul li a:hover {
+            background-color: white;
+            color: black !important;
+        }
+
+        .header ul {
+            margin: 0;
+        }
     </style>
     @yield('style')
 </head>
 
 <body>
-    <div id="app">
-        <div class="header">
-            <div>
-                <h3>Admin Panel</h3>
-            </div>
-            <ul class="is-hidden-mobile nav-list">
-                <li><a href="{{ route('posts.index') }}">Posts</a></li>
-                <li><a href="{{ route('admin.createDep') }}">Department</a></li>
-                <li><a href="/"></a></li>
-            </ul>
-            <div class="toggle-button is-hidden-desktop is-hidden-tablet"><img id="button_image" src="/menu2.png"></div>
+<div id="app">
+    <div class="header">
+        <div>
+            <h3>Admin Panel</h3>
         </div>
+        <ul class="is-hidden-mobile nav-list">
+            <li><a href="{{ route('logout') }}">Logout</a></li>
+            <li><a href="{{ route('posts.index') }}">Posts</a></li>
+            <li><a href="{{ route('admin.createDep') }}">Department</a></li>
+        </ul>
+        <div class="toggle-button is-hidden-desktop is-hidden-tablet"><img id="button_image" src="/menu2.png"></div>
     </div>
-    @yield('content')
-    </div>
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
-    <script
-            src="https://code.jquery.com/jquery-3.2.1.min.js"
-            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-            crossorigin="anonymous"></script>
-    <script src="{{ asset('js/admin.js') }}"></script>
-    @yield('script')
+</div>
+@yield('content')
+</div>
+<!-- Scripts -->
+<script src="{{ asset('js/app.js') }}"></script>
+<script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+<script src="{{ asset('js/admin.js') }}"></script>
+@yield('script')
 </body>
 
 </html>

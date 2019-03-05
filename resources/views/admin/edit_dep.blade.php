@@ -37,6 +37,24 @@
                             @endif
                         </div>
                     </div>
+                    <div class="field">
+                        <label class="label">Department type</label>
+                        <div class="control">
+                            <label class="radio">
+                                <input type="radio" name="type" value="main"
+                                        {{ $dep->type == 'main' ? 'checked':'' }}>
+                                Main department
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="type" value="support"
+                                        {{ $dep->type == 'support' ? 'checked':'' }}>
+                                Supporting department
+                            </label>
+                            @if($errors->has('vision'))
+                                <p class="help is-danger">{{ $errors->first('type') }}</p>
+                            @endif
+                        </div>
+                    </div>
                     @if($dep->degrees->count() > 0)
                         <h4>Degrees</h4>
                         @foreach($dep->degrees as $index)
@@ -90,15 +108,16 @@
                     @if($dep->courses->count() > 0)
                         <h4>Courses</h4>
                         @foreach($dep->courses as $index)
-                                <div class="field additional-info" id="{{ $index->id.'course' }}">
-                                    <label class="label">Title:</label>
-                                    <input type="text" name="course_title[{{ $index->id }}]" value="{{ $index->title }}">
-                                    <label class="label">Course Number: </label>
-                                    <input type="text" name="course_number[{{ $index->id }}]" value="{{ $index->course_number }}">
-                                    <p>Course Type:  {{ $index->course_type }}</p>
-                                    <p>Course Year: {{ $index->course_year }}</p>
-                                    <a class="delete-course" id="{{ $index->id }}">Delete</a>
-                                </div>
+                            <div class="field additional-info" id="{{ $index->id.'course' }}">
+                                <label class="label">Title:</label>
+                                <input type="text" name="course_title[{{ $index->id }}]" value="{{ $index->title }}">
+                                <label class="label">Course Number: </label>
+                                <input type="text" name="course_number[{{ $index->id }}]"
+                                       value="{{ $index->course_number }}">
+                                <p>Course Type: {{ $index->course_type }}</p>
+                                <p>Course Year: {{ $index->course_year }}</p>
+                                <a class="delete-course" id="{{ $index->id }}">Delete</a>
+                            </div>
                         @endforeach
                     @endif
                     <div class="field">

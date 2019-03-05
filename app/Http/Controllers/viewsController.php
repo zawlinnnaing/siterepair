@@ -14,7 +14,7 @@ class viewsController extends Controller
         // app()->bind('postsPhotosController',postsPhotosController::class);
         // app()->bind('postsController',postsController::class);
 
-        $this->dataControllerPosts = app()->make('postsController');
+        $this->dataControllerPosts = app()->make('PostsController');
     }
 
     public function index () {

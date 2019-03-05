@@ -9,7 +9,8 @@ use File;
 use Illuminate\Http\Request;
 use Session;
 
-class postsController extends Controller
+class PostsController extends Controller
+
 {
     public function index()
     {
@@ -33,8 +34,8 @@ class postsController extends Controller
         $this->validate($request, $this->rules($request));
         $postData = $request->except('img');
         $post = Post::create($postData);
-        if($request->has('img')){
-            $this->uploadImage($request,$post,'uploads');
+        if ($request->has('img')) {
+            $this->uploadImage($request, $post, 'uploads');
         }
         Session::flash('success_msg', 'Post added Successfully');
         return redirect()->route('posts.index');
@@ -49,11 +50,11 @@ class postsController extends Controller
 
     public function update($id, Request $request)
     {
-        $this->validate($request,$this->rules($request));
+        $this->validate($request, $this->rules($request));
         $postData = $request->except('img');
         $post = Post::find($id);
         $post->update($postData);
-        $this->uploadImage($request,$post,'uploads');
+        $this->uploadImage($request, $post, 'uploads');
         Session::flash('success_msg', 'Post updated Successfully');
         return redirect()->route('posts.index');
     }
@@ -64,47 +65,50 @@ class postsController extends Controller
         $this->deletePhoto($post);
         $post->delete();
 //       Should be modified for api implementation
-        Session::flash('success_msg','Post deleted successfully');
-         return redirect()->route('posts.index');
+        Session::flash('success_msg', 'Post deleted successfully');
+        return redirect()->route('posts.index');
     }
 
     public function rules(Request $request)
     {
         $rules = [
-            'title' => 'required|string', 'content' => 'required|string', 'publisher' => 'required|string',
-            'img'   => 'required'
-
+            'title'     => 'required|string',
+            'content'   => 'required|string',
+            'publisher' => 'required|string',
+            'img'       => 'required'
         ];
-        $photos = count($request->img);
-        foreach (range(0, $photos) as $index) {
-            $rules[ 'img[].' . $index ] = 'image|mimes:jpeg,bmp,png|max:2000';
+        if (is_array($request->img)) {
+            $photos = count($request->img);
+            foreach (range(0, $photos) as $index) {
+                $rules['img[].' . $index] = 'image|mimes:jpeg,bmp,png|max:2000';
+            }
         }
-
         return $rules;
     }
 
     protected function uploadImage(Request $request, $model, $path)
     {
 //        $count = count($request->img);
-        foreach ($request->img as $index => $image){
-            if($request->check[$index] == 'on'){
+        foreach ($request->img as $index => $image) {
+            if ($request->check[$index] == 'on') {
                 $forShow = true;
-            }else{
+            } else {
                 $forShow = false;
             }
-        $imageName = $image->getClientOriginalName();
-        $image->move(public_path($path), $imageName);
+            $imageName = $image->getClientOriginalName();
+            $image->move(public_path($path), $imageName);
 
 //        $model->update(['img_dir' => $imageName , 'name' => $imageName]);
-            $photos = new Photos(['img_dir' => $imageName , 'name' => $imageName,'forshow' => $forShow]);
+            $photos = new Photos(['img_dir' => $imageName, 'name' => $imageName, 'forshow' => $forShow]);
             $model->photos()->save($photos);
         }
     }
 
-    private function deletePhoto($model){
+    private function deletePhoto($model)
+    {
         $photos = $model->photos()->get();
-        foreach ($photos as $photo){
-            File::delete(public_path('uploads').'/'.$photo->img_dir);
+        foreach ($photos as $photo) {
+            File::delete(public_path('uploads') . '/' . $photo->img_dir);
         }
     }
 

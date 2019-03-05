@@ -17,18 +17,19 @@
             <div class="column is-4">
                 <div class="gallery">
                     <!-- <div class="columns is-mobile"> -->
-                        @foreach($post->photos as $index)                                <div class="column">
-                                    <a href="{{ asset('uploads/'.$index->img_dir) }}">
-                                        <div class="image is-3by2">
-                                            <img src="{{ asset('uploads/'.$index->img_dir) }}" style="display: block;">
-                                        </div>
-                                    </a>
+                    @foreach($post->photos as $index)
+                        <div class="column">
+                            <a href="{{ asset('uploads/'.$index->img_dir) }}">
+                                <div class="image is-3by2">
+                                    <img src="{{ asset('uploads/'.$index->img_dir) }}" style="display: block;">
                                 </div>
-                        @endforeach
-                    </div>
-                    <p class="additional_info column">Date: November 29 2017
-                        <br> Publisher: bla bla
-                    </p>
+                            </a>
+                        </div>
+                    @endforeach
+                </div>
+                <p class="additional_info column">Date: {{ $post->created_at }}
+                    <br> Publisher: {{$post->publisher}}
+                </p>
                 <!-- </div> -->
             </div>
         </div>
@@ -49,14 +50,14 @@
         .cover_img {
             @foreach($post->photos as $index)
                 @if($index->forshow == true)
-                 background: url("{{ asset('uploads/'.$index->img_dir) }}") , linear-gradient(rgba(0,0,4,0.5),rgba(0,0,4,0.5));
-                @break
-                @else
-                 background: url("{{ asset('uploads/no-image-available.jpg') }}"),linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
-                @endif
-            @endforeach
-            background-repeat: no-repeat;
-            background-position:center;
+                    background: url("{{ asset('uploads/'.$index->img_dir) }}"), linear-gradient(rgba(0, 0, 4, 0.5), rgba(0, 0, 4, 0.5));
+            @break
+            @else
+   background: url("{{ asset('uploads/no-image-available.jpg') }}"), linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+            @endif
+        @endforeach
+   background-repeat: no-repeat;
+            background-position: center;
             height: 50vh;
             background-size: cover;
             position: relative;

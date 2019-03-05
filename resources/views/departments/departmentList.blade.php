@@ -2,23 +2,34 @@
     <div id="landing">
         @include('header')
         <div class="column is-8">
-            <div class="columns">
-                <div class="column engineering_dept is-6">
-                    <ul>
-                        @for($i = 0; $i < 8 ; $i++)
-                            <li><a href="{{ route('department',$deps[$i]->name) }}">{{  $deps[$i]->name }}</a></li>
-                        @endfor
+            @if($deps->count() > 0)
+                <div class="columns">
+                    <div class="column engineering_dept is-6">
+                        <ul>
+                            @foreach($deps as $dep)
+                                @if($dep->type == 'main')
+                                    <li><a href="{{ route('department',$dep->name) }}">{{  $dep->name }}</a>
+                                    </li>
+                                @endif
+                            @endforeach
 
-                    </ul>
+                        </ul>
+                    </div>
+                    <div class="column supporting_dept is-6">
+                        <ul>
+                            @foreach($deps as $dep)
+                                @if($dep->type == 'support')
+                                    <li><a href="{{ route('department',$dep->name) }}">{{  $dep->name }}</a>
+                                    </li>
+                                @endif
+                            @endforeach
+                        </ul>
+                    </div>
                 </div>
-                <div class="column supporting_dept is-6">
-                    <ul>
-                        @for ($i = 8 ; $i < $deps->count() ; $i ++)
-                            <li><a href=" {{ route ('department', $deps[$i]->name) }}">{{ $deps[$i]->name }}</a></li>
-                        @endfor
-                    </ul>
-                </div>
-            </div>
+            @else
+                <p style="text-align: center; font-size: 2rem !important; color: #ffffff;">There is no department
+                    yet.</p>
+            @endif
         </div>
     </div>
 @endsection @section('style')

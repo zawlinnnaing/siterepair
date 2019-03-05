@@ -6,24 +6,27 @@ use App\Department;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
-class AppServiceProvider extends ServiceProvider
+class ViewShareServiceProvider extends ServiceProvider
 {
     /**
-     * Bootstrap any application services.
+     * Bootstrap the application services.
      *
      * @return void
      */
+
+    protected $defer = true;
+
     public function boot()
     {
         //
-//         $dep = Department::all();
+//        $dep = Department::all();
 //        error_reporting(E_ALL ^ E_NOTICE);
-//         View::share('departments',$dep);
+//        View::share('departments',$dep);
 
     }
 
     /**
-     * Register any application services.
+     * Register the application services.
      *
      * @return void
      */

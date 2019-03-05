@@ -51,6 +51,22 @@
                         </div>
                     </div>
                     <div class="field">
+                        <label class="label">Department type</label>
+                        <div class="control">
+                            <label class="radio">
+                                <input type="radio" name="type" value="main" checked>
+                                Main department
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="type" value="support">
+                                Supporting department
+                            </label>
+                            @if($errors->has('vision'))
+                                <p class="help is-danger">{{ $errors->first('type') }}</p>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="field">
                         <input type="submit" name="submit" value="Submit">
                     </div>
                 </form>
