@@ -119,6 +119,7 @@
 }
 
 #landing .landing-info {
+
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -138,6 +139,7 @@
     background-color: #ededed;
     color: #424242 !important;
 }
+
 .campus {
     margin-top: 2em;
     border: 1px solid #757575;
