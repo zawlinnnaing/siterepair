@@ -1,5 +1,13 @@
 @extends('layouts.app')
 
+@section('style')
+    <style type="text/css">
+        .is-error {
+            color: #ff3860;
+        }
+    </style>
+@endsection
+
 @section('content')
     <div class="container">
         <div class="row">
@@ -20,8 +28,8 @@
                                            value="{{ old('email') }}" required autofocus>
 
                                     @if ($errors->has('email'))
-                                        <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <span class="is-danger">
+                                        <strong class="is-error">{{ $errors->first('email') }}</strong>
                                     </span>
                                     @endif
                                 </div>

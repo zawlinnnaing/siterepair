@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('style')
     <style type="text/css">
-        #add_btn{
+        #add_btn {
             margin: 2em 0em;
         }
     </style>
@@ -27,10 +27,10 @@
                             </label>
                             <div class="control">
                                 <input type="text" name="title[]" required class="input">
-                                @if($errors->has('title'))
-                                    <p class="help is-danger">{{ $errors->first('title') }}</p>
-                                @endif
                             </div>
+                            @if($errors->has('title'))
+                                <p class="help is-danger">{{ $errors->first('title') }}</p>
+                            @endif
                         </div>
                         <div class="field">
                             <label class="label">Course Number</label>
@@ -67,11 +67,13 @@
                             <option value="fourth">Fourth Year</option>
                             <option value="fifth">Fifth Year</option>
                             <option value="final">Fianl Year</option>
-                        </select> @if($errors->has('course_year'))
-                            <p class="help is-danger">{{ $errors->first('course_year') }}</p>
-                        @endif
+                        </select>
                     </div>
+                    @if($errors->has('course_year'))
+                        <p class="help is-danger">{{ $errors->first('course_year') }}</p>
+                    @endif
                 </div>
+                @include('components.select_course_level')
                 <div class="field">
                     <input type="submit" name="submit" value="Submit">
                 </div>

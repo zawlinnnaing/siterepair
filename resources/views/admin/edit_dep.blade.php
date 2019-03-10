@@ -116,6 +116,7 @@
                                        value="{{ $index->course_number }}">
                                 <p>Course Type: {{ $index->course_type }}</p>
                                 <p>Course Year: {{ $index->course_year }}</p>
+                                <p>Course Level: {{ Config::get('constants.course_level')[$index->course_level] }}</p>
                                 <a class="delete-course" id="{{ $index->id }}">Delete</a>
                             </div>
                         @endforeach

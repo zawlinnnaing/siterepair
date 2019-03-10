@@ -1,31 +1,65 @@
 .menu ul {
-	list-style: none;
-}
-.container {
-	display: block;
-	margin: 0 auto;
+    list-style: none;
 }
 
-.content{
-	margin: 2em;
+.container {
+    display: block;
+    margin: 0 auto;
 }
-form .select{
-	margin: 2em 0;
+
+.content {
+    margin: 2em;
 }
-.content h3{
-	margin: 0;
+
+form .select {
+    margin: 2em 0;
 }
-p.is-success{
-	background-color: #9CCC65;
-	color: whitesmoke;
-	padding: 0.4em 1em;
+
+.content h3 {
+    margin: 0;
 }
-form h3{
-	margin-left: 0;
+
+p.is-success {
+    background-color: #9CCC65;
+    color: whitesmoke;
+    padding: 0.4em 1em;
 }
-form input[type='text']{
-	width: 50% !important;
+
+form h3 {
+    margin-left: 0;
 }
-form .field{
-	margin: 2em 0;
+
+form input[type='text'] {
+    width: 50% !important;
+}
+
+form .field {
+    margin: 2em 0;
+}
+
+.success_msg {
+    background-color: #CCFF90;
+    color: #000000;
+}
+
+.button {
+    padding: 0.5em 1em;
+    border-radius: 3px;
+    margin: 0 1em;
+}
+
+a.edit {
+    background-color: #1E88E5;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.delete {
+    background-color: #EF6C00;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+button.form-button {
+    margin: 0.5em 1em;
 }

@@ -76,179 +76,185 @@
             <div class="column is-10">
                 <h5>Research Facilities</h5>
                 <div class="gallery">
-                    @foreach($dep->research as $index) @if ($loop->index % 3 == 0 )
-                        <div class="columns">
-                            @endif
-                            <div class="column">
-                                @if(empty($index->img_dir))
-                                    <a href="{{ asset('uploads/no-image-available.png') }}"
-                                       data-caption="{{ $index->description }}">
-                                        <div class="image is-3by2">
-                                            <img src="{{ asset('uploads/no-image-available.png') }}"/>
-                                            <p class="overlay_text">{{ $index->title }}</p>
-                                        </div>
-                                    </a>
-                                @else
-                                    <a href="{{ asset('uploads/'.$index->img_dir) }}"
-                                       data-caption="{{ $index->description }}">
-                                        <div class="image is-3by2">
-                                            <img src="{{ asset('uploads/'.$index->img_dir) }}"/>
-                                            <p class="overlay_text">{{ $index->title }}</p>
-                                        </div>
-                                    </a> @endif
+                    @foreach($dep->research as $index)
+                        @if ($loop->index % 3 == 0 )
+                            <div class="columns">
+                                @endif
+                                <div class="column">
+                                    @if(empty($index->img_dir))
+                                        <a href="{{ asset('uploads/no-image-available.png') }}"
+                                           data-caption="{{ $index->description }}">
+                                            <div class="image is-3by2">
+                                                <img src="{{ asset('uploads/no-image-available.png') }}"/>
+                                                <p class="overlay_text">{{ $index->title }}</p>
+                                            </div>
+                                        </a>
+                                    @else
+                                        <a href="{{ asset('uploads/'.$index->img_dir) }}"
+                                           data-caption="{{ $index->description }}">
+                                            <div class="image is-3by2">
+                                                <img src="{{ asset('uploads/'.$index->img_dir) }}"/>
+                                                <p class="overlay_text">{{ $index->title }}</p>
+                                            </div>
+                                        </a>
+                                    @endif
+                                </div>
+                                @if((++$loop->index) % 3 == 0)
                             </div>
-                            @if((++$loop->index) % 3 == 0 )
-                        </div>
-                    @endif @endforeach
+                        @endif
+                    @endforeach
                 </div>
             </div>
         </div>
-        <!-- End research facilities -->
-        <!-- Courses -->
-        <div class="courses" id="courses">
-            <div class="column is-8">
-                <h5>Courses</h5>
-                <div class="columns">
-                    <div class="column">
-                        <div class="course_duration">
-                            <h4>BE 1<sup>st</sup> year</br>36 weeks</h4>
-                            <div class="course_detail">
-                                <h5>Semester I</h5>
-                                <ul>
-                                    @foreach($dep->courses as $index) @if($index->course_type == 'first' && $index->course_year == 'first')
-                                        <li>{{$index->course_number.' '.$index->title}}</li>
-                                    @endif @endforeach
-                                </ul>
-                                <h5>Semester II</h5>
-                                <ul>
-                                    @foreach($dep->courses as $index) @if($index->course_type == 'second' && $index->course_year == 'first')
-                                        <li>{{$index->course_number.' '.$index->title}}</li>
-                                    @endif @endforeach
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="column">
-                        <div class="course_duration">
-                            <h4>BE 2<sup>nd</sup> year</br>36 weeks</h4>
-                            <div class="course_detail">
-                                <h5>Semester I</h5>
-                                <ul>
-                                    @foreach($dep->courses as $index) @if($index->course_type == 'first' && $index->course_year == 'second')
-                                        <li>{{$index->course_number.' '.$index->title}}</li>
-                                    @endif @endforeach
-                                </ul>
-                                <h5>Semester II</h5>
-                                <ul>
-                                    @foreach($dep->courses as $index) @if($index->course_type == 'second' && $index->course_year == 'second')
-                                        <li>{{$index->course_number.' '.$index->title}}</li>
-                                    @endif @endforeach
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="column">
-                        <div class="course_duration">
-                            <h4>BE 3<sup>rd</sup> year</br>36 weeks</h4>
-                            <div class="course_detail">
-                                <h5>Semester I</h5>
-                                <ul>
-                                    @foreach($dep->courses as $index) @if($index->course_type == 'first' && $index->course_year == 'third')
-                                        <li>{{$index->course_number.' '.$index->title}}</li>
-                                    @endif @endforeach
-                                </ul>
-                                <h5>Semester II</h5>
-                                <ul>
-                                    @foreach($dep->courses as $index) @if($index->course_type == 'second' && $index->course_year == 'third')
-                                        <li>{{$index->course_number.' '.$index->title}}</li>
-                                    @endif @endforeach
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="columns">
-                    <div class="column">
-                        <div class="course_duration">
-                            <h4>BE 4<sup>th</sup> year</br>36 weeks</h4>
-                            <div class="course_detail">
-                                <h5>Semester I</h5>
-                                <ul>
-                                    @foreach($dep->courses as $index) @if($index->course_type == 'first' && $index->course_year == 'fourth')
-                                        <li>{{$index->course_number.' '.$index->title}}</li>
-                                    @endif @endforeach
-                                </ul>
-                                <h5>Semester II</h5>
-                                <ul>
-                                    @foreach($dep->courses as $index) @if($index->course_type == 'second' && $index->course_year == 'fourth')
-                                        <li>{{$index->course_number.' '.$index->title}}</li>
-                                    @endif @endforeach
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="column">
-                        <div class="course_duration">
-                            <h4>BE 5<sup>th</sup> year</br>36 weeks</h4>
-                            <div class="course_detail">
-                                <h5>Semester I</h5>
-                                <ul>
-                                    @foreach($dep->courses as $index) @if($index->course_type == 'first' && $index->course_year == 'fifth')
-                                        <li>{{$index->course_number.' '.$index->title}}</li>
-                                    @endif @endforeach
-                                </ul>
-                                <h5>Semester II</h5>
-                                <ul>
-                                    @foreach($dep->courses as $index) @if($index->course_type == 'second' && $index->course_year == 'fifth')
-                                        <li>{{$index->course_number.' '.$index->title}}</li>
-                                    @endif @endforeach
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="column">
-                        <div class="course_duration">
-                            <h4>BE final year</br>36 weeks</h4>
-                            <div class="course_detail">
-                                <h5>Semester I</h5>
-                                <ul>
-                                    @foreach($dep->courses as $index) @if($index->course_type == 'first' && $index->course_year == 'final')
-                                        <li>{{$index->course_number.' '.$index->title}}</li>
-                                    @endif @endforeach
-                                </ul>
-                                <h5>Semester II</h5>
-                                <ul>
-                                    @foreach($dep->courses as $index) @if($index->course_type == 'second' && $index->course_year == 'final')
-                                        <li>{{$index->course_number.' '.$index->title}}</li>
-                                    @endif @endforeach
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End courses -->
-        <!-- Staff -->
-        <div class="staff column is-6" id="staff">
-            @foreach($dep->staff as $index)
+    </div>
+
+    <!-- End research facilities -->
+    <!-- Courses -->
+    <div class="courses" id="courses">
+        <div class="column is-8">
+            <h5>Courses</h5>
+            <div class="columns">
                 <div class="column">
-                    @if(empty($index->img_dir))
-                        <img src="{{ asset('staff_photos/default.png') }}" class="image is-128x128 thumbnail"> @else
-                        <img src="{{ asset('staff_photos/'.$index->img_dir) }}"
-                             class="image is-128x128 thumbnail"> @endif
-                    <div class="staff-info">
-                        <h5>{{ $index->title }}</h5>
-                        <h5>{{ $index->staff_name }}</h5>
-                        <p class="secondary"> Current Research: {{ $index->current_research }}</p>
-                        <p class="secondary">Research Area: {{ $index->research_area }}</p>
-                        @if(strtolower($index->title) == 'head of department')
-                            <span class="hod_badge">HOD</span> @endif
+                    <div class="course_duration">
+                        <h4>BE 1<sup>st</sup> year</br>36 weeks</h4>
+                        <div class="course_detail">
+                            <h5>Semester I</h5>
+                            <ul>
+                                @foreach($dep->courses as $index) @if($index->course_type == 'first' && $index->course_year == 'first')
+                                    <li>{{$index->course_number.' '.$index->title}}</li>
+                                @endif @endforeach
+                            </ul>
+                            <h5>Semester II</h5>
+                            <ul>
+                                @foreach($dep->courses as $index) @if($index->course_type == 'second' && $index->course_year == 'first')
+                                    <li>{{$index->course_number.' '.$index->title}}</li>
+                                @endif @endforeach
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            @endforeach
+                <div class="column">
+                    <div class="course_duration">
+                        <h4>BE 2<sup>nd</sup> year</br>36 weeks</h4>
+                        <div class="course_detail">
+                            <h5>Semester I</h5>
+                            <ul>
+                                @foreach($dep->courses as $index) @if($index->course_type == 'first' && $index->course_year == 'second')
+                                    <li>{{$index->course_number.' '.$index->title}}</li>
+                                @endif @endforeach
+                            </ul>
+                            <h5>Semester II</h5>
+                            <ul>
+                                @foreach($dep->courses as $index) @if($index->course_type == 'second' && $index->course_year == 'second')
+                                    <li>{{$index->course_number.' '.$index->title}}</li>
+                                @endif @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="course_duration">
+                        <h4>BE 3<sup>rd</sup> year</br>36 weeks</h4>
+                        <div class="course_detail">
+                            <h5>Semester I</h5>
+                            <ul>
+                                @foreach($dep->courses as $index) @if($index->course_type == 'first' && $index->course_year == 'third')
+                                    <li>{{$index->course_number.' '.$index->title}}</li>
+                                @endif @endforeach
+                            </ul>
+                            <h5>Semester II</h5>
+                            <ul>
+                                @foreach($dep->courses as $index) @if($index->course_type == 'second' && $index->course_year == 'third')
+                                    <li>{{$index->course_number.' '.$index->title}}</li>
+                                @endif @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="columns">
+                <div class="column">
+                    <div class="course_duration">
+                        <h4>BE 4<sup>th</sup> year</br>36 weeks</h4>
+                        <div class="course_detail">
+                            <h5>Semester I</h5>
+                            <ul>
+                                @foreach($dep->courses as $index) @if($index->course_type == 'first' && $index->course_year == 'fourth')
+                                    <li>{{$index->course_number.' '.$index->title}}</li>
+                                @endif @endforeach
+                            </ul>
+                            <h5>Semester II</h5>
+                            <ul>
+                                @foreach($dep->courses as $index) @if($index->course_type == 'second' && $index->course_year == 'fourth')
+                                    <li>{{$index->course_number.' '.$index->title}}</li>
+                                @endif @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="course_duration">
+                        <h4>BE 5<sup>th</sup> year</br>36 weeks</h4>
+                        <div class="course_detail">
+                            <h5>Semester I</h5>
+                            <ul>
+                                @foreach($dep->courses as $index) @if($index->course_type == 'first' && $index->course_year == 'fifth')
+                                    <li>{{$index->course_number.' '.$index->title}}</li>
+                                @endif @endforeach
+                            </ul>
+                            <h5>Semester II</h5>
+                            <ul>
+                                @foreach($dep->courses as $index) @if($index->course_type == 'second' && $index->course_year == 'fifth')
+                                    <li>{{$index->course_number.' '.$index->title}}</li>
+                                @endif @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="course_duration">
+                        <h4>BE final year</br>36 weeks</h4>
+                        <div class="course_detail">
+                            <h5>Semester I</h5>
+                            <ul>
+                                @foreach($dep->courses as $index) @if($index->course_type == 'first' && $index->course_year == 'final')
+                                    <li>{{$index->course_number.' '.$index->title}}</li>
+                                @endif @endforeach
+                            </ul>
+                            <h5>Semester II</h5>
+                            <ul>
+                                @foreach($dep->courses as $index) @if($index->course_type == 'second' && $index->course_year == 'final')
+                                    <li>{{$index->course_number.' '.$index->title}}</li>
+                                @endif @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- End staff -->
+    </div>
+    <!-- End courses -->
+    <!-- Staff -->
+    <div class="staff column is-6" id="staff">
+        @foreach($dep->staff as $index)
+            <div class="column">
+                @if(empty($index->img_dir))
+                    <img src="{{ asset('staff_photos/default.png') }}" class="image is-128x128 thumbnail"> @else
+                    <img src="{{ asset('staff_photos/'.$index->img_dir) }}"
+                         class="image is-128x128 thumbnail"> @endif
+                <div class="staff-info">
+                    <h5>{{ $index->title }}</h5>
+                    <h5>{{ $index->staff_name }}</h5>
+                    <p class="secondary"> Current Research: {{ $index->current_research }}</p>
+                    <p class="secondary">Research Area: {{ $index->research_area }}</p>
+                    @if(strtolower($index->title) == 'head of department')
+                        <span class="hod_badge">HOD</span> @endif
+                </div>
+            </div>
+        @endforeach
+    </div>
+    <!-- End staff -->
     </div>
 @endsection @section('style')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/baugette.css') }}">
@@ -264,10 +270,19 @@
             justify-content: flex-start;
             color: #eee;
             @if(!isset($dep->img_dir))
- background-image: url('/../civil.png') !important;
+          background-image: url('/../civil.png') !important;
             @else
- background-image: url("{{ asset("uploads/".$dep->img_dir) }}");
+          background-image: url("{{ asset("uploads/".$dep->img_dir) }}");
         @endif
+
+
+
+
+
+
+
+
+
 
         }
 
@@ -352,6 +367,7 @@
         .mission_vision .align_right {
             text-align: right;
         }
+
         /**********   Offered degrees  */
         .offered_degrees {
             padding: 0.2em 0 !important;

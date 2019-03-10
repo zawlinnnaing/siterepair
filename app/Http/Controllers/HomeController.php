@@ -289,13 +289,18 @@ class HomeController extends Controller
         return redirect()->back();
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function insertCourse(Request $request)
     {
         $this->validate($request, [
             'title'         => 'required|array',
             'course_type'   => 'required|string',
             'course_number' => 'required|array',
-            'course_year'   => 'required|string'
+            'course_year'   => 'required|string',
+            'course_level'  => 'required|string'
         ]);
 
         $dep = Department::where('name', $request->name)->first();
@@ -305,7 +310,8 @@ class HomeController extends Controller
                 'title'         => $value,
                 'course_number' => $request->course_number[$key],
                 'course_type'   => $request->course_type,
-                'course_year'   => $request->course_year
+                'course_year'   => $request->course_year,
+                'course_level'  => (int)$request->course_level
             ]);
         }
 //        $dep->courses()->create($data);

@@ -10,9 +10,13 @@
     <title>Admin Panel</title>
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ asset('mtu_small.ico') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/montserrat.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/index.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/admin.css') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
     <style type="text/css">
         .header {
             background-color: #42A5F5;
@@ -39,6 +43,7 @@
             <h3>Admin Panel</h3>
         </div>
         <ul class="is-hidden-mobile nav-list">
+            {{--<li><a href="{{ route('admin.change_password') }}">Change Password</a></li>--}}
             <li><a href="{{ route('logout') }}">Logout</a></li>
             <li><a href="{{ route('posts.index') }}">Posts</a></li>
             <li><a href="{{ route('admin.createDep') }}">Department</a></li>
@@ -55,6 +60,7 @@
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
 <script src="{{ asset('js/admin.js') }}"></script>
+
 @yield('script')
 </body>
 

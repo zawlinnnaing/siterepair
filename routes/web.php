@@ -29,10 +29,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/posts', 'viewsController@index')->name('posts.index');
     Route::get('/posts/details/{id}', 'viewsController@details')->name('posts.details');
     Route::get('/posts/add', 'viewsController@add')->name('posts.add');
-    Route::post('/posts/insert', 'postsController@insert')->name('posts.insert');
+    Route::post('/posts/insert', 'PostsController@insert')->name('posts.insert');
     Route::get('/posts/edit/{id}', 'viewsController@edit')->name('posts.edit');
-    Route::post('/posts/update/{id}', 'postsController@update')->name('posts.update');
-    Route::get('/posts/delete/{id}', 'postsController@delete')->name('posts.delete');
+    Route::post('/posts/update/{id}', 'PostsController@update')->name('posts.update');
+    Route::get('/posts/delete/{id}', 'PostsController@delete')->name('posts.delete');
     Route::get('admin/dep/create', 'viewsController@createDep')->name('admin.createDep');
     Route::get('admin/add_degree', function () {
         return view('admin.add_degree');
@@ -66,6 +66,12 @@ Route::middleware('auth')->group(function () {
     })->name('admin.add_course');
     Route::post('/admin/insert_course', 'HomeController@insertCourse')->name('admin.insert_course');
     Route::get('/admin/delete_course/{id}', 'HomeController@deleteCourse')->name('admin.delete_course');
+
+    /************************** Resource routes *************************/
+    Route::namespace('Admin')->group(function () {
+        Route::resource('/admin/research_papers', 'ResearchPaperController');
+        Route::resource('/admin/categories', 'CategoryController');
+    });
 
     Route::get('logout', 'AdminController@logout')->name('logout');
 });
