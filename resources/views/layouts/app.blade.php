@@ -17,6 +17,9 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
           integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
+    <!------------------------------- Quill CSS ------------------------>
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
     <style type="text/css">
         .header {
             background-color: #42A5F5;
@@ -60,6 +63,9 @@
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
 <script src="{{ asset('js/admin.js') }}"></script>
+
+<!------------------------------- Quill script ------------------------>
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 
 @yield('script')
 </body>

@@ -3,7 +3,7 @@
     <div id="landing">
         @include('header')
         {{--<div class="detail_button">--}}
-            {{--<h5>Read More</h5>--}}
+        {{--<h5>Read More</h5>--}}
         {{--</div>--}}
     </div>
     <div class="events column is-10">
@@ -16,7 +16,9 @@
             </div>
             <div class="column">
                 <h3>2018-2019 Academic Year MTU Entrance form</h3>
-                <p class="mmfont">၁။	၂၀၁၈-၂၀၁၉ ပညာသင်နှစ်အတွက် မန္တလေးနည်းပညာတက္ကသိုလ် ၏ အင်ဂျင်နီယာ နှင့်  ဗိသုကာ သင်တန်း ၊ ဇီဝနည်းပညာသင်တန်းများကို အောက်ဖော်ပြပါ အထူးပြုဘာသာရပ်များအလိုက်  ဖွင့်လှစ်သွားမည် ဖြစ်ပါသည်။...
+                <p class="mmfont">၁။ ၂၀၁၈-၂၀၁၉ ပညာသင်နှစ်အတွက် မန္တလေးနည်းပညာတက္ကသိုလ် ၏ အင်ဂျင်နီယာ နှင့် ဗိသုကာ
+                    သင်တန်း ၊ ဇီဝနည်းပညာသင်တန်းများကို အောက်ဖော်ပြပါ အထူးပြုဘာသာရပ်များအလိုက် ဖွင့်လှစ်သွားမည်
+                    ဖြစ်ပါသည်။...
                     <a href="/MTU( Form) (1).docx">Download application form here</a></p>
                 <div id="readmore_headlinebutton">
                     <h5><a href="/detail/1">Read More</a></h5>
@@ -85,15 +87,15 @@
     </div>
     <div class="announcements_and_upcommingevents column is-6">
         @foreach($announcements as $announcement)
-        <div class="announcementorevent columns is-mobile">
-            <div class="announce_date">
-                <p>{{ date('d',strtotime($announcement->created_at)) }}
-                    <br>{{ date('M',strtotime($announcement->created_at)) }}</p>
+            <div class="announcementorevent columns is-mobile">
+                <div class="announce_date">
+                    <p>{{ date('d',strtotime($announcement->created_at)) }}
+                        <br>{{ date('M',strtotime($announcement->created_at)) }}</p>
+                </div>
+                <div class="content">
+                    <p>{!! $announcement->content!!}</p>
+                </div>
             </div>
-            <div class="content">
-                <p>{{ $announcement->content }}</p>
-            </div>
-        </div>
         @endforeach
     </div>
 
@@ -253,19 +255,19 @@
         }
 
         /*edges and staff*/
-        @supports(-webkit-line-clamp: 3 ){
-        .text_div p {
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
+        @supports (-webkit-line-clamp: 3 ) {
+            .text_div p {
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
         }
-    }
 
         .text_div p {
             max-height: 250px;
             overflow: hidden;
-            }
+        }
 
         .text_div a {
             text-decoration: none;
@@ -279,10 +281,12 @@
         .staff_info h4 {
             text-align: center;
         }
-        #readmore_headlinebutton h5 a{
-             text-decoration: none;
-             color: #333;
+
+        #readmore_headlinebutton h5 a {
+            text-decoration: none;
+            color: #333;
         }
+
         #readmore_headlinebutton:hover {
 
         }
