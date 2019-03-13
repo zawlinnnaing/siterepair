@@ -62,10 +62,11 @@
         src="https://code.jquery.com/jquery-3.2.1.min.js"
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
 <script src="{{ asset('js/admin.js') }}"></script>
 
 <!------------------------------- Quill script ------------------------>
-<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 
 @yield('script')
 </body>

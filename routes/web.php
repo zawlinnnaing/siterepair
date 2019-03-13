@@ -82,3 +82,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/admin/dep/insert', 'HomeController@insertDep')->name('admin.insertDep');
 app()->bind('PostsPhotosController', App\Http\Controllers\PostsPhotosController::class);
 app()->bind('PostsController', App\Http\Controllers\PostsController::class);
+
+/************************** Testing routes *************************/
+
+Route::get('/test-public', function () {
+    dd(public_path());
+});

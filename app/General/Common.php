@@ -25,8 +25,7 @@ trait Common
             $fileName = $file->getClientOriginName();
         } else {
             $fileName = strtolower($imageName);
-            $fileName = explode(' ', $fileName);
-            $fileName = implode('_', $fileName);
+//            4663t`7ry
             $fileName = time() . '_' . $fileName . '.jpg';
         }
         $directory = public_path() . '/uploads/' . $directoryName;

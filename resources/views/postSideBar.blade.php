@@ -4,14 +4,14 @@
             Posts
         </p>
         <ul class="menu-list">
-            <li><a href="{{ route('posts.index') }}">Post list</a>
+            <li><a href="{{ route('posts.index') }}">Posts</a>
                 <ul>
                     <li><a href="{{ route('posts.add') }}">Add post</a></li>
                 </ul>
             </li>
             <li><a href="{{route('announcements.index') }}">Announcements</a>
                 <ul>
-                    <li><a href="{{ route('announcements.add') }}">Add Anuouncement</a></li>
+                    <li><a href="{{ route('announcements.add') }}">Add Announcement</a></li>
                 </ul>
             </li>
             <li><a href="{{ route('categories.index') }}">Categories</a>

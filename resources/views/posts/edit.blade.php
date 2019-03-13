@@ -1,8 +1,9 @@
-@extends('layout') @section('content')
-
+@extends('layouts.app')
+@section('content')
     <div class="column is-8">
         <h4>Edit a post</h4>
-        <form class="form" action="{{ route('posts.update',['id' => $post->id]) }}" method="POST" enctype="multipart/form-data">
+        <form class="form" action="{{ route('posts.update',['id' => $post->id]) }}" method="POST"
+              enctype="multipart/form-data">
             {{ csrf_field() }}
             <div class="field">
                 <label class="label">Title</label>
@@ -16,12 +17,16 @@
             <div class="field">
                 <label class="label">Content</label>
                 <div class="control">
-                    <textarea class="textarea" name="content">{{ $post->content }}</textarea>
-                    @if($errors->has('content'))
-                        <p class="help is-danger">{{ $errors->first('content') }}</p>
-                    @endif
+                    <div id="post-editor">
+                        {!! $post->content !!}
+                    </div>
                 </div>
             </div>
+            <input type="hidden" name="content">
+            <p class="help is-danger"{{ $errors->first('content') }}></p>
+            <input type="file" name="image" id="post-image"
+                   style="display: none;"
+                   onchange="uploadImage(event)" accept="image/*">
             <div class="field">
                 <label class="label">Publisher</label>
                 <div class="control">
@@ -31,18 +36,7 @@
                     @endif
                 </div>
             </div>
-            <div class="field">
-                <label class="label">Image</label>
-                <div class="control">
-                    <input type="file" name="img[]" multiple>
-                    @if($errors->has('img'))
-                        <p class="help is-danger">{{ $errors->first('img') }}</p>
-                    @endif
-                    @if($errors->has('img.*'))
-                        <p class="help is-danger">{{ $errors->first('img.*') }}</p>
-                    @endif
-                </div>
-            </div>
+
             <div class="field is-grouped">
                 <div class="control">
                     <input type="submit" name="submit" value="Submit">
@@ -60,4 +54,12 @@
             margin: 0 auto;
         }
     </style>
+@endsection
+@section('script')
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="{{ asset('js/quill-editor/post.js') }}" defer></script>
 @endsection

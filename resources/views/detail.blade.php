@@ -3,35 +3,36 @@
         @include('header')
         <div class="text">
             <h4>{{ $post->title }}</h4>
-            <!--         <p class="additional_info">Date: November 29 2017
-                <br> Publisher: bla bla
-            </p> -->
+            <p class="additional_info">Date: {{ date('Y-M-d', strtotime($post->created_at)) }}
+                <br> Publisher: {{ $post->publisher }}
+            </p>
         </div>
     </div>
-    <div class="content column is-8">
+    <div class="content column">
         <div class="columns">
-            <div class="column is-4"></div>
-            <div class="column is-8">
-                <article>{{ $post->content }}</article>
+            <div class="column"></div>
+            <div class="column is-10 post-content">
+                {!! $post->content !!}
             </div>
-            <div class="column is-4">
-                <div class="gallery">
-                    <!-- <div class="columns is-mobile"> -->
-                    @foreach($post->photos as $index)
-                        <div class="column">
-                            <a href="{{ asset('uploads/'.$index->img_dir) }}">
-                                <div class="image is-3by2">
-                                    <img src="{{ asset('uploads/'.$index->img_dir) }}" style="display: block;">
-                                </div>
-                            </a>
-                        </div>
-                    @endforeach
-                </div>
-                <p class="additional_info column">Date: {{ $post->created_at }}
-                    <br> Publisher: {{$post->publisher}}
-                </p>
-                <!-- </div> -->
-            </div>
+            <div class="column"></div>
+            {{--<div class="column is-3">--}}
+            {{--<div class="gallery">--}}
+            {{--<!-- <div class="columns is-mobile"> -->--}}
+            {{--@foreach($post->photos as $index)--}}
+            {{--<div class="column">--}}
+            {{--<a href="{{ asset('uploads/'.$index->img_dir) }}">--}}
+            {{--<div class="image is-3by2">--}}
+            {{--<img src="{{ asset('uploads/'.$index->img_dir) }}" style="display: block;">--}}
+            {{--</div>--}}
+            {{--</a>--}}
+            {{--</div>--}}
+            {{--@endforeach--}}
+            {{--</div>--}}
+            {{--<p class="additional_info column">Date: {{ $post->created_at }}--}}
+            {{--<br> Publisher: {{$post->publisher}}--}}
+            {{--</p>--}}
+            {{--<!-- </div> -->--}}
+            {{--</div>--}}
         </div>
     </div>
 @endsection @section('style')
@@ -48,17 +49,9 @@
         }
 
         .cover_img {
-            @foreach($post->photos as $index)
-                @if($index->forshow == true)
-                    background: url("{{ asset('uploads/'.$index->img_dir) }}"), linear-gradient(rgba(0, 0, 4, 0.5), rgba(0, 0, 4, 0.5));
-            @break
-            @else
-   background: url("{{ asset('uploads/no-image-available.jpg') }}"), linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
-            @endif
-        @endforeach
-   background-repeat: no-repeat;
-            background-position: center;
-            height: 50vh;
+            {{--background: url("{{ asset('uploads/no-image-available.jpg') }}") linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)) no-repeat center;--}}
+                     height: 50vh;
+            background-color: black;
             background-size: cover;
             position: relative;
         }
@@ -71,11 +64,10 @@
 
         .content .additional_info {
             margin: 0 1em;
-            color: #616161;
+            color: white;
             display: block;
             padding: 1em;
             background-color: #424242;
-            color: white;
         }
 
         /*img.image:hover {
@@ -98,6 +90,10 @@
             position: absolute;
             bottom: 0;
             left: 0;
+        }
+
+        .post-content {
+            overflow: hidden;
         }
 
         .img {

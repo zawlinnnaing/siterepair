@@ -21,3 +21,19 @@ $('.delete-btn-ajax').on('click', function (e) {
     }
 });
 
+/************************** Quill editor *************************/
+/************************** For announcement *************************/
+var quill = new Quill('#editor', {
+    theme: 'snow'
+});
+editorContent = document.querySelector('input[name=content]');
+quill.on('text-change', function (delta, oldDelta, source) {
+    if (source === 'user') {
+        console.log(quill.root.innerHTML);
+        editorContent.value = quill.root.innerHTML;
+    }
+});
+
+
+
+console.log('from admin.js');

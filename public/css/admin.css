@@ -63,3 +63,11 @@ a.edit {
 button.form-button {
     margin: 0.5em 1em;
 }
+
+#editor {
+    height: 250px;
+}
+
+#post-editor {
+    height: 250px;
+}

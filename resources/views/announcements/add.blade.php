@@ -50,19 +50,11 @@
         #editor {
             height: 250px;
         }
+
     </style>
 @endsection
 @section('script')
     <script type="application/javascript">
-        var quill = new Quill('#editor', {
-            theme: 'snow'
-        });
-        editorContent = document.querySelector('input[name=content]');
-        quill.on('text-change', function (delta, oldDelta, source) {
-            if (source === 'user') {
-                console.log(quill.root.innerHTML);
-                editorContent.value = quill.root.innerHTML;
-            }
-        })
+
     </script>
 @endsection

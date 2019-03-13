@@ -15,10 +15,11 @@
                 <tbody>
                 @foreach($announcements as $announcement)
                     <tr>
-                        <td>{{ $announcement->content }}</td>
+                        <td>{!! $announcement->content !!}</td>
                         <td>{{ $announcement->created_at }}</td>
                         <td><a href="{{ route('announcements.edit',['id' => $announcement->id]) }}" class="button edit">Edit</a>
-                            <a href="{{ route('announcements.delete',['id' => $announcement->id]) }}" class="button delete delete-btn">Delete</a>
+                            <a href="{{ route('announcements.delete',['id' => $announcement->id]) }}"
+                               class="button delete delete-btn">Delete</a>
                         </td>
                     </tr>
                 @endforeach

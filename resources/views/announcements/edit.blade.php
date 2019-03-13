@@ -7,16 +7,17 @@
                 <p class="is-success">{{ Session::get('msg') }}</p>
             @endif
             <h4>Edit an announcement</h4>
-            <form class="form" action="{{ route('announcements.update',['id' => $announcement->id]) }}" method="POST" enctype="multipart/form-data">
+            <form class="form" action="{{ route('announcements.update',['id' => $announcement->id]) }}" method="POST"
+                  enctype="multipart/form-data">
                 {{ csrf_field() }}
+                <input type="hidden" name="content" value="{{ $announcement->content }}">
                 <div class="field">
-                    <label class="label">Content</label>
                     <div class="control">
-                        <textarea class="textarea" name="content" required>{{ $announcement->content }}</textarea>
-                        @if($errors->has('content'))
-                            <p class="help is-danger">{{ $errors->first('content') }}</p>
-                        @endif
+                        <div id="editor">
+                            {!!  $announcement->content !!}
+                        </div>
                     </div>
+                    <p class="help is-danger">{{ $errors->first('content') }}</p>
                 </div>
 
                 <div class="field is-grouped">

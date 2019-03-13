@@ -3,8 +3,12 @@
 namespace App\Http\Controllers\Admin\Api;
 
 use App\General\Common;
+use App\Post;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Validation\Rules\In;
+use URL;
 
 class PostApiController extends Controller
 {
@@ -20,17 +24,34 @@ class PostApiController extends Controller
     public function postImage(Request $request)
     {
         $directoryName = 'posts';
-        $request->validate([
+        $this->validate($request, [
             'image' => 'required'
         ]);
-        return response()->json(['imgUrl' => $request->file('image')],200);
         $image = $this->decodeImage($request->input('image'));
         $imageName = rand(0, 100000);
         $path = $this->uploadImage($image, $directoryName, $imageName);
         if ($path) {
             $imgUrl = URL::to('/');
-            $imgUrl = $imgUrl . '/storage/' . $directoryName . '/' . $path;
+            $imgUrl = $imgUrl . '/uploads/' . $directoryName . '/' . $path;
             return response()->json(['imgUrl' => $imgUrl], 200);
         }
+    }
+
+    /**
+     * @param $query
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function searchPost()
+    {
+        $query = Input::get('query');
+
+        $result = Post::where('content', 'LIKE', '%' . $query . '%')->get();
+
+        if ($result->count() > 0) {
+            return response()->json($result, 200);
+        } else {
+            return response()->json('no search found');
+        }
+
     }
 }

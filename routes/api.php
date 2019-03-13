@@ -21,3 +21,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 /************************** Testing api endpoints *************************/
 
 Route::post('/post_image', 'PostApiController@postImage');
+
+Route::get('/search_post', 'PostApiController@searchPost');

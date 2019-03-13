@@ -32,18 +32,20 @@ class PostsController extends Controller
     public function insert(Request $request)
     {
         $this->validate($request, $this->rules($request));
-        $postData = $request->except('img');
+        $postData = $request->all();
         $post = Post::create($postData);
-        if ($request->has('img')) {
-            $this->uploadImage($request, $post, 'uploads');
+//        if ($request->has('img')) {
+//            $this->uploadImage($request, $post, 'uploads');
+//        }
+        if ($post) {
+            Session::flash('success_msg', 'Post added Successfully');
+            return redirect()->route('posts.index');
         }
-        Session::flash('success_msg', 'Post added Successfully');
-        return redirect()->route('posts.index');
     }
 
     public function edit($id)
     {
-        $post = Post::with('photos')->find($id);
+        $post = Post::find($id);
         // return view('posts.edit',['post' => $post]);
         return response()->json(['post' => $post]);
     }
@@ -51,10 +53,9 @@ class PostsController extends Controller
     public function update($id, Request $request)
     {
         $this->validate($request, $this->rules($request));
-        $postData = $request->except('img');
+        $postData = $request->all();
         $post = Post::find($id);
         $post->update($postData);
-        $this->uploadImage($request, $post, 'uploads');
         Session::flash('success_msg', 'Post updated Successfully');
         return redirect()->route('posts.index');
     }
@@ -62,7 +63,7 @@ class PostsController extends Controller
     public function delete($id)
     {
         $post = Post::find($id);
-        $this->deletePhoto($post);
+//        $this->deletePhoto($post);
         $post->delete();
 //       Should be modified for api implementation
         Session::flash('success_msg', 'Post deleted successfully');
@@ -75,14 +76,14 @@ class PostsController extends Controller
             'title'     => 'required|string',
             'content'   => 'required|string',
             'publisher' => 'required|string',
-            'img'       => 'required'
+//            'img'       => 'required'
         ];
-        if (is_array($request->img)) {
-            $photos = count($request->img);
-            foreach (range(0, $photos) as $index) {
-                $rules['img[].' . $index] = 'image|mimes:jpeg,bmp,png|max:2000';
-            }
-        }
+//        if (is_array($request->img)) {
+//            $photos = count($request->img);
+//            foreach (range(0, $photos) as $index) {
+//                $rules['img[].' . $index] = 'image|mimes:jpeg,bmp,png|max:2000';
+//            }
+//        }
         return $rules;
     }
 

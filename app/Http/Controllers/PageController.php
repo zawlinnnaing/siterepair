@@ -25,7 +25,7 @@ class PageController extends Controller
 
     public function postDetail($id)
     {
-        $post = Post::find($id);
+        $post = Post::with('category')->find($id);
         return view('detail', ['post' => $post]);
 
     }
