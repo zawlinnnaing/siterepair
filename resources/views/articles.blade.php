@@ -10,6 +10,7 @@
                 <input type="submit" name="submit" value="search">
             </form>
         </div>
+
         @foreach($posts as $post)
             <div class="item" style="background: url('{{ asset('civil.png') }}'); height: 250px; overflow: hidden">
                 <a href="{{ route('post_detail',$post->id) }}">
@@ -27,6 +28,7 @@
                 </a>
             </div>
         @endforeach
+
     <!-- {{ $posts->links() }} -->
     <!-- <div class="header">
             <h2>Announcements

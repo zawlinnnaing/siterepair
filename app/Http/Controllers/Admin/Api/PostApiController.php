@@ -45,7 +45,7 @@ class PostApiController extends Controller
     {
         $query = Input::get('query');
 
-        $result = Post::where('content', 'LIKE', '%' . $query . '%')->get();
+        $result = Post::with('category')->where('content', 'LIKE', '%' . $query . '%')->get();
 
         if ($result->count() > 0) {
             return response()->json($result, 200);
