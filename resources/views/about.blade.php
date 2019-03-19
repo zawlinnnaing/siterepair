@@ -161,7 +161,7 @@
                 </div>
                 <div class="rector_card">
                     <p class="name">Dr. Kay Thi Lwin</p>
-                    <p class="period">Dr. Kay Thi Lwin</p>
+                    <p class="period">19-8-2006 to 9-7-2008</p>
                 </div>
                 <div class="rector_card">
                     <p class="name">Dr. Zaw Min Aung</p>

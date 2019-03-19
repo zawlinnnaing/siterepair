@@ -1,4 +1,5 @@
 <?php
+
 namespace Deployer;
 
 require 'recipe/laravel.php';
@@ -10,7 +11,7 @@ set('application', 'MTU website');
 set('repository', 'git@github.com:zawlinnnaing/siterepair.git');
 
 // [Optional] Allocate tty for git clone. Default value is false.
-set('git_tty', true); 
+set('git_tty', true);
 
 // Shared files/dirs between deploys 
 add('shared_files', []);
@@ -24,19 +25,20 @@ add('writable_dirs', []);
 
 host('157.230.125.155')
     ->user('deployer')
-    ->identifyFile('~/.ssh/deployerkey')
+    ->identityFile('~/.ssh/deployerkey')
     ->set('deploy_path', '/var/www/html/laravel');
-    
+
 // Tasks
 
 task('build', function () {
     run('cd {{release_path}} && build');
 });
 
+
 // [Optional] if deploy fails automatically unlock.
 after('deploy:failed', 'deploy:unlock');
 
 // Migrate database before symlink new release.
 
-//before('deploy:symlink', 'artisan:migrate');
+before('deploy:symlink', 'artisan:migrate');
 
