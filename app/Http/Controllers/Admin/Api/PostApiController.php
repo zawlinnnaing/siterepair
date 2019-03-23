@@ -38,14 +38,14 @@ class PostApiController extends Controller
     }
 
     /**
-     * @param $query
      * @return \Illuminate\Http\JsonResponse
      */
     public function searchPost()
     {
-        $query = Input::get('query');
+        $keyword = Input::get('query');
 
-        $result = Post::with('category')->where('content', 'LIKE', '%' . $query . '%')->get();
+        $result = Post::with('category')->where('title', 'LIKE', '%' . $keyword . '%')
+            ->orWhere('content', 'LIKE', '%' . $keyword . '%')->get();
 
         if ($result->count() > 0) {
             return response()->json($result, 200);
