@@ -49,8 +49,9 @@
         </div>
         <ul class="is-hidden-mobile nav-list">
             {{--<li><a href="{{ route('admin.change_password') }}">Change Password</a></li>--}}
-
-            <li><a href="{{ route('logout') }}">Logout({{ ucwords(Auth::user()->name) }})</a></li>
+            @if(Auth::user())
+                <li><a href="{{ route('logout') }}">Logout({{ ucwords(Auth::user()->name) }})</a></li>
+            @endif
             <li><a href="{{ route('posts.index') }}">Posts</a></li>
             <li><a href="{{ route('admin.createDep') }}">Department</a></li>
         </ul>
