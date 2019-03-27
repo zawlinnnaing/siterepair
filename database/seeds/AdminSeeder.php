@@ -15,7 +15,7 @@ class AdminSeeder extends Seeder
         DB::table('users')->insert([
             'name'     => 'admin',
             'email'    => 'admin@mtu.edu.mm',
-            'password' => bcrypt('secret')
+            'password' => bcrypt('FwLgHHw4yF9yjQcn')
         ]);
     }
 }
