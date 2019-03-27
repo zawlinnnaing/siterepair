@@ -43,6 +43,8 @@
                 <input type="file" name="image" id="post-image"
                        style="display: none;"
                        onchange="uploadImage(event)" accept="image/*">
+                <input type="hidden" name="email" value="{{ Auth::user()->email }}">
+                <input type="hidden" name="api_token" value="{{ Auth::user()->api_token }}">
 
                 <div class="field">
                     <label class="label">Publisher</label>

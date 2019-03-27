@@ -45,11 +45,16 @@ function uploadImage(event) {
     console.log('from uploadImage');
     let file = event.target.files[0];
     let reader = new FileReader();
+    let apiToken = document.querySelector('input[name=api_token]').value;
+    let email = document.querySelector('input[name=email]').value;
+    console.log(apiToken);
     reader.onload = async function () {
         let image = reader.result;
         try {
             const response = await axios.post(IMAGE_API_URL, {
-                image: image
+                image: image,
+                email: email,
+                api_token: apiToken
             });
             let imageUrl = response.data.imgUrl;
             if (imageUrl != null && imageUrl.length > 0) {
@@ -66,6 +71,7 @@ function uploadImage(event) {
 
 }
 
+// getting editor content
 editorContent = document.querySelector('input[name=content]');
 postQuill.on('text-change', function (delta, oldDelta, source) {
     if (source === 'user') {

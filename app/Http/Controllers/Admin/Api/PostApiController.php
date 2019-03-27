@@ -6,6 +6,7 @@ use App\General\Common;
 use App\Post;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Validation\Rules\In;
 use URL;
@@ -35,6 +36,7 @@ class PostApiController extends Controller
             $imgUrl = $imgUrl . '/uploads/' . $directoryName . '/' . $path;
             return response()->json(['imgUrl' => $imgUrl], 200);
         }
+
     }
 
     /**

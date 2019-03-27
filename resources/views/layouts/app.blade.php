@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+
+<!------------------------------- Admin Layout ------------------------>
 <html lang="{{ app()->getLocale() }}">
 
 <head>
@@ -47,7 +49,8 @@
         </div>
         <ul class="is-hidden-mobile nav-list">
             {{--<li><a href="{{ route('admin.change_password') }}">Change Password</a></li>--}}
-            <li><a href="{{ route('logout') }}">Logout</a></li>
+
+            <li><a href="{{ route('logout') }}">Logout({{ ucwords(Auth::user()->name) }})</a></li>
             <li><a href="{{ route('posts.index') }}">Posts</a></li>
             <li><a href="{{ route('admin.createDep') }}">Department</a></li>
         </ul>
@@ -55,7 +58,6 @@
     </div>
 </div>
 @yield('content')
-</div>
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
 <script
