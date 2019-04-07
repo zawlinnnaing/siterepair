@@ -18,7 +18,7 @@ var toolbarOptions = [['bold', 'italic', 'underline', 'strike'],        // toggl
     ['image'],
     ['clean']];
 
-const IMAGE_API_URL = 'http://mtu-edu.local/api/post_image';
+const IMAGE_API_URL = domainUrl + '/api/post_image';
 
 var postQuill = new Quill('#post-editor', {
     modules: {
@@ -42,7 +42,7 @@ postQuill.getModule('toolbar').addHandler('image', imageHandler);
 
 
 function uploadImage(event) {
-    console.log('from uploadImage');
+    console.log(domainUrl);
     let file = event.target.files[0];
     let reader = new FileReader();
     let apiToken = document.querySelector('input[name=api_token]').value;

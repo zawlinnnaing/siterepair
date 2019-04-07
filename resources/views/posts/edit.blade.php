@@ -67,5 +67,9 @@
             integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
             crossorigin="anonymous"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    {{-- for injecting in post js --}}
+    <script type="application/javascript">
+        const domainUrl = '{{ env('APP_URL') }}';
+    </script>
     <script src="{{ asset('js/quill-editor/post.js') }}" defer></script>
 @endsection
