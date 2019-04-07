@@ -18,7 +18,7 @@ class PageController extends Controller
 
     public function index()
     {
-        $posts = Post::with('photos')->orderBy('created_at', 'desc')->take(5)->get();
+        $posts = Post::with(['photos', 'category'])->orderBy('created_at', 'desc')->take(5)->get();
         $announcements = Announcement::orderBy('created_at', 'desc')->take(3)->get();
         return view('index', ['posts' => $posts, 'announcements' => $announcements]);
     }

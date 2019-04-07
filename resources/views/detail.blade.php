@@ -5,6 +5,7 @@
             <h4>{{ $post->title }}</h4>
             <p class="additional_info">Date: {{ date('Y-M-d', strtotime($post->created_at)) }}
                 <br> Publisher: {{ $post->publisher }}
+                <br> Category: {{$post->category->title }}
             </p>
         </div>
     </div>
@@ -50,7 +51,7 @@
 
         .cover_img {
             {{--background: url("{{ asset('uploads/no-image-available.jpg') }}") linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)) no-repeat center;--}}
-                     height: 50vh;
+                      height: 50vh;
             background-color: black;
             background-size: cover;
             position: relative;

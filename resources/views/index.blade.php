@@ -47,16 +47,7 @@
                 <div class="columns is-mobile img_date column is-4">
                     <div class="image_div column is-6">
                         <div class="image is-128x128">
-                            @if(isset($post->photos))
-                                @foreach($post->photos as $index)
-                                    @if($index->forshow)
-                                        <img src="{{ asset('uploads/'.$index->img_dir) }}">
-                                        @break
-                                    @endif
-                                @endforeach
-                            @else
-                                <img src="{{ asset('uploads/no-image-available.png') }}">
-                            @endif
+                            <img src="{{ asset('uploads/no-image-available.png') }}">
                         </div>
                     </div>
                     <div class="date_div column">
@@ -70,13 +61,17 @@
                                 <br>
                                 <b>{{ $post->publisher }}</b>
                             </p>
+                            <p>Category
+                                <br>
+                                <b>{{ $post->category->title }}</b>
+                            </p>
                         </div>
                     </div>
                 </div>
                 <div class="text_div column">
                     <a href="{{ route('post_detail',$post->id) }}">
                         <h3 class='mmfont'>{{$post->title}}</h3>
-                        <p class='mmfont'>{{ $post->content }}</p>
+                        <p class='mmfont'>{{ strip_tags($post->content) }}</p>
                     </a>
                 </div>
             </div>
@@ -134,6 +129,8 @@
 
         .article {
             padding: 20px;
+            height: 200px;
+            overflow: hidden;
             border-bottom: 1px solid #ddd;
         }
 

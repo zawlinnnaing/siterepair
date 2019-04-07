@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <div class="columns">
-        @include('postSideBar')
+        {{--@include('postSideBar')--}}
         <div class="column is-8">
             <h4>Add a post</h4>
             <form class="form" action="{{ route('posts.insert') }}" method="POST" enctype="multipart/form-data">
@@ -9,7 +9,7 @@
                 <div class="field">
                     <label class="label">Title</label>
                     <div class="control">
-                        <input type="text" name="title">
+                        <input class="title-field input" type="text" name="title">
                         @if($errors->has('title'))
                             <p class="help is-danger">{{ $errors->first('title') }}</p>
                         @endif
@@ -86,6 +86,7 @@
             display: block;
             margin: 0 auto;
         }
+
     </style>
 @endsection
 @section('script')
