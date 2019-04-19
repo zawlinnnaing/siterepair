@@ -9,7 +9,17 @@
                 @endif
                 <form action="{{ route('admin.updateDep',$dep->name) }}" method="POST">
                     {{ csrf_field() }}
-                    <h5>Department name : {{ ucwords($dep->name) }}</h5>
+
+                    <div class="field">
+                        <label class="label">Name</label>
+                        <div class="control">
+                            <input name="history" value="{{$dep->name}}"
+                                   class="input" type="text" required>
+                            @if($errors->has('name'))
+                                <p class="help is-danger">{{ $errors->first('name') }}</p>
+                            @endif
+                        </div>
+                    </div>
                     <div class="field">
                         <label class="label">History</label>
                         <div class="control">

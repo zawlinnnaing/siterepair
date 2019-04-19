@@ -6,6 +6,9 @@
             @if(Session::has('msg'))
                 <p class="is-success">{{ Session::get('msg') }}</p>
             @endif
+            @if(Session::has('error_msg'))
+                <p class="error_msg">{{ Session::get('error_msg') }}</p>
+            @endif
             <table class="table">
                 <thead>
                 <td>id</td>
@@ -19,10 +22,11 @@
                         <td>{{ ucwords($category->title) }}</td>
                         <td><a href="{{ route('categories.edit',['id' => $category->id]) }}"
                                class="button edit">Edit</a>
-                            <form action="{{ route('categories.destroy',['id'=> $category->id]) }}" method="POST">
+                            <form style="display: inline"
+                                  action="{{ route('categories.destroy',['id'=> $category->id]) }}" method="POST">
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
-                                <button type="submit" class="form-button delete">Delete</button>
+                                <button type="submit" class="form-button  delete">Delete</button>
                             </form>
                         </td>
                     </tr>

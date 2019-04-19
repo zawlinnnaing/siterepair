@@ -25,6 +25,12 @@ p.is-success {
     padding: 0.4em 1em;
 }
 
+p.error_msg {
+    background-color: hsl(348, 100%, 61%);
+    color: whitesmoke;
+    padding: 0.4rem 1rem;
+}
+
 form h3 {
     margin-left: 0;
 }

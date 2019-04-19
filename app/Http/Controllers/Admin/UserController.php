@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\General\FormRulesCollections;
+use App\General\FormRequestRules\UserFormRequestRules;
 use App\Http\Requests\ChangePasswordRequest;
 use App\User;
 use Auth;
@@ -12,7 +12,7 @@ use App\Http\Controllers\Controller;
 class UserController extends Controller
 {
 
-    use FormRulesCollections;
+    use UserFormRequestRules;
 
     /**
      * Display a listing of the resource.
@@ -34,6 +34,7 @@ class UserController extends Controller
     public function create()
     {
         //
+        return view('admin.users.create');
     }
 
     /**
@@ -45,6 +46,15 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request, $this->storeRules());
+        $user = User::create([
+            'name'     => $request->input('name'),
+            'email'    => $request->input('email'),
+            'password' => $request->input('password')
+        ]);
+        if ($user) {
+            return redirect()->route('users.index')->with('msg', 'User created successfully');
+        }
     }
 
     /**
@@ -67,6 +77,10 @@ class UserController extends Controller
     public function edit($id)
     {
         //
+        $user = User::find($id);
+        if ($user) {
+            return view('admin.users.edit')->with(['user' => $user]);
+        }
     }
 
     /**
@@ -79,6 +93,12 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $this->validate($request, $this->updateRules());
+        $user = User::find($id);
+        if ($user) {
+            $user->update($request->all());
+            return redirect()->route('users.edit', ['id' => $id])->with('msg', 'User updated successfully');
+        }
     }
 
     /**
@@ -90,6 +110,11 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+        $user = User::find($id);
+        if ($user) {
+            $user->delete();
+            return back()->with('msg', 'User deleted successfully');
+        }
     }
 
     /************************** Other functions ************************

@@ -105,10 +105,14 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         //
-        $deleted = Category::find($id)->delete();
-        if ($deleted) {
+        $category = Category::find($id);
+        if ($category && $category->posts()->get()->count() <= 0) {
+            $category->delete();
             Session::flash('msg', 'Category deleted successfully');
-            return redirect()->back();
+            return back();
+        } else {
+            return back()
+                ->with('error_msg', 'Sorry , you cannot delete category that has posts ');
         }
     }
 
