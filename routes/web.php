@@ -67,10 +67,17 @@ Route::middleware('auth')->group(function () {
     Route::post('/admin/insert_course', 'HomeController@insertCourse')->name('admin.insert_course');
     Route::get('/admin/delete_course/{id}', 'HomeController@deleteCourse')->name('admin.delete_course');
 
+    /************************** Change Password section *************************/
+    Route::namespace('Admin')->prefix('admin')->group(function () {
+        Route::get('/change_password', 'UserController@getChangePassword')->name('admin.change_password');
+        Route::post('/update_password', 'UserController@updatePassword')->name('admin.users.update_password');
+    });
+
     /************************** Resource routes *************************/
     Route::namespace('Admin')->group(function () {
         Route::resource('/admin/research_papers', 'ResearchPaperController');
         Route::resource('/admin/categories', 'CategoryController');
+        Route::resource('/admin/users', 'UserController');
     });
 
     Route::get('logout', 'AdminController@logout')->name('logout');

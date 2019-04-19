@@ -43,6 +43,8 @@
 
 <body>
 <div id="app">
+
+    {{--Navbar--}}
     <div class="header">
         <div>
             <h3>Admin Panel</h3>
@@ -54,6 +56,7 @@
             @endif
             <li><a href="{{ route('posts.index') }}">Posts</a></li>
             <li><a href="{{ route('admin.createDep') }}">Department</a></li>
+            <li><a href="{{ route('users.index') }}">Users</a></li>
         </ul>
         <div class="toggle-button is-hidden-desktop is-hidden-tablet"><img id="button_image" src="/menu2.png"></div>
     </div>

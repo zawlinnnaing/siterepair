@@ -2,6 +2,9 @@
 @section('content')
     <div class="columns">
         {{--@include('postSideBar')--}}
+
+
+
         <div class="column is-8">
             <h4>Add a post</h4>
             <form class="form" action="{{ route('posts.insert') }}" method="POST" enctype="multipart/form-data">
@@ -40,9 +43,11 @@
                 </div>
                 <input type="hidden" name="content">
                 <p class="help is-danger"{{ $errors->first('content') }}></p>
+
                 <input type="file" name="image" id="post-image"
                        style="display: none;"
                        onchange="uploadImage(event)" accept="image/*">
+
                 <input type="hidden" name="email" value="{{ Auth::user()->email }}">
                 <input type="hidden" name="api_token" value="{{ Auth::user()->api_token }}">
 
