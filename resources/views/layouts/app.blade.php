@@ -54,13 +54,13 @@
             @if(Auth::user())
                 <li><a href="{{ route('logout') }}">Logout({{ ucwords(Auth::user()->name) }})</a></li>
             @endif
-            @if(Auth::user()->hasPermissionTo('manage posts'))
+            @if(Auth::user() && Auth::user()->hasPermissionTo('manage posts'))
                 <li><a href="{{ route('posts.index') }}">Posts</a></li>
             @endif
-            @if(Auth::user()->hasPermissionTo('manage departments'))
+            @if(Auth::user() && Auth::user()->hasPermissionTo('manage departments'))
                 <li><a href="{{ route('admin.createDep') }}">Department</a></li>
             @endif
-            @if(Auth::user()->hasPermissionTo('manage users'))
+            @if(Auth::user() && Auth::user()->hasPermissionTo('manage users'))
                 <li><a href="{{ route('users.index') }}">Users</a></li>
             @endif
         </ul>

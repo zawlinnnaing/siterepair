@@ -44,19 +44,19 @@
                             <label class="radio">
                                 <input type="radio" name="role" value="{{ config    ('constants.role_names')[1] }}"
                                        checked>
-                                Super-admin
+                                Super-admin(Manage everything)
                             </label>
                             <label class="radio">
                                 <input type="radio" name="role" value="{{ config('constants.role_names')[2] }}">
-                                Department-admin
+                                Department-admin(only manage departments)
                             </label>
                             <label class="radio">
                                 <input type="radio" name="role" value="{{ config('constants.role_names')[3] }}">
-                                Post-admin
+                                Post-admin(only manage posts)
                             </label>
                             <label class="radio">
                                 <input type="radio" name="role" value="{{ config('constants.role_names')[4] }}">
-                                User-admin
+                                User-admin(only manage users)
                             </label>
                             @if($errors->has('role'))
                                 <p class="help is-danger">{{ $errors->first('role') }}</p>
