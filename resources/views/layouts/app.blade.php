@@ -54,9 +54,15 @@
             @if(Auth::user())
                 <li><a href="{{ route('logout') }}">Logout({{ ucwords(Auth::user()->name) }})</a></li>
             @endif
-            <li><a href="{{ route('posts.index') }}">Posts</a></li>
-            <li><a href="{{ route('admin.createDep') }}">Department</a></li>
-            <li><a href="{{ route('users.index') }}">Users</a></li>
+            @if(Auth::user()->hasPermissionTo('manage posts'))
+                <li><a href="{{ route('posts.index') }}">Posts</a></li>
+            @endif
+            @if(Auth::user()->hasPermissionTo('manage departments'))
+                <li><a href="{{ route('admin.createDep') }}">Department</a></li>
+            @endif
+            @if(Auth::user()->hasPermissionTo('manage users'))
+                <li><a href="{{ route('users.index') }}">Users</a></li>
+            @endif
         </ul>
         <div class="toggle-button is-hidden-desktop is-hidden-tablet"><img id="button_image" src="/menu2.png"></div>
     </div>

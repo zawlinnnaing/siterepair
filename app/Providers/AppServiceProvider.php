@@ -2,8 +2,7 @@
 
 namespace App\Providers;
 
-use App\Department;
-use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +18,8 @@ class AppServiceProvider extends ServiceProvider
 //         $dep = Department::all();
 //        error_reporting(E_ALL ^ E_NOTICE);
 //         View::share('departments',$dep);
+        Schema::defaultStringLength(191);
+
 
     }
 

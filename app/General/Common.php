@@ -48,4 +48,6 @@ trait Common
         $image = base64_decode($base64Image[1]);
         return $image;
     }
+
+
 }

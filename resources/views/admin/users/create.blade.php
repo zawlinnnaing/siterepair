@@ -37,6 +37,32 @@
                             @endif
                         </div>
                     </div>
+
+                    <div class="field">
+                        <label class="label">Roles</label>
+                        <div class="control">
+                            <label class="radio">
+                                <input type="radio" name="role" value="{{ config    ('constants.role_names')[1] }}"
+                                       checked>
+                                Super-admin
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="role" value="{{ config('constants.role_names')[2] }}">
+                                Department-admin
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="role" value="{{ config('constants.role_names')[3] }}">
+                                Post-admin
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="role" value="{{ config('constants.role_names')[4] }}">
+                                User-admin
+                            </label>
+                            @if($errors->has('role'))
+                                <p class="help is-danger">{{ $errors->first('role') }}</p>
+                            @endif
+                        </div>
+                    </div>
                     <div class="field">
                         <div class="control">
                             <button class="button submit-button" type="submit">

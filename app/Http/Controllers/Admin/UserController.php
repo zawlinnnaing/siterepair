@@ -47,12 +47,15 @@ class UserController extends Controller
     {
         //
         $this->validate($request, $this->storeRules());
+
         $user = User::create([
             'name'     => $request->input('name'),
             'email'    => $request->input('email'),
-            'password' => $request->input('password')
+            'password' => bcrypt($request->input('password'))
         ]);
+
         if ($user) {
+            $user->assignRole($request->input('role'));
             return redirect()->route('users.index')->with('msg', 'User created successfully');
         }
     }
