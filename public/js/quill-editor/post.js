@@ -1,7 +1,8 @@
 /************************** For post *************************/
 
 var toolbarOptions = [['bold', 'italic', 'underline', 'strike'],        // toggled buttons
-    ['blockquote', 'code-block'],
+    ['blockquote', 'code-block','link'],
+
 
     [{'header': 1}, {'header': 2}],               // custom button values
     [{'list': 'ordered'}, {'list': 'bullet'}],
