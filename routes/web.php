@@ -54,6 +54,7 @@ Route::middleware('auth')->group(function () {
         Route::get('admin/add_degree', function () {
             return view('admin.add_degree');
         })->name('admin.add_degree');
+        Route::delete('admin/departments/{id}', 'HomeController@deleteDep')->name('admin.departments.destroy');
         Route::post('/admin/insert_degree', 'HomeController@insertDeg')->name('admin.insert_deg');
         Route::get('/admin/edit_dep/{keyword}', 'HomeController@editDep')->name('admin.edit_dep');
         Route::post('/admin/update_dep/{keyword}', 'HomeController@updateDep')->name('admin.updateDep');

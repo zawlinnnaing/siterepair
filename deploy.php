@@ -3,6 +3,7 @@
 namespace Deployer;
 
 require 'recipe/laravel.php';
+require 'recipe/npm.php';
 
 // Project name
 set('application', 'MTU website');
@@ -37,6 +38,7 @@ task('build', function () {
 
 // [Optional] if deploy fails automatically unlock.
 after('deploy:failed', 'deploy:unlock');
+after('deploy:update_code', 'npm:install', 'npm:run:dev');
 
 // Migrate database before symlink new release.
 

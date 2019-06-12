@@ -8,7 +8,10 @@ use App\Degree;
 use App\Department;
 use App\Research;
 use App\Staff;
+use Exception;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Session;
 
 class HomeController extends Controller
@@ -26,7 +29,7 @@ class HomeController extends Controller
     /**
      * Show the application dashboard.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
@@ -291,7 +294,7 @@ class HomeController extends Controller
 
     /**
      * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
     public function insertCourse(Request $request)
     {
@@ -317,5 +320,17 @@ class HomeController extends Controller
 //        $dep->courses()->create($data);
         Session::flash('msg', 'Course added successfully');
         return redirect()->back();
+    }
+
+    public function deleteDep($id)
+    {
+        try {
+            $department = Department::find($id);
+            $department->delete();
+            return response()->json(['message' => 'Department deleted successfully'], 200);
+
+        } catch (Exception $exception) {
+            return response()->json(['message' => $exception->getMessage()], 500);
+        }
     }
 }

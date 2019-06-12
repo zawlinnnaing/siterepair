@@ -58,5 +58,9 @@ class viewsController extends Controller
         return view('departments.civil');
     }
 
+    public function deleteDep()
+    {
+
+    }
 
 }

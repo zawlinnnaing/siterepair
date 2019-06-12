@@ -1,4 +1,5 @@
-@extends('layouts.app') @section('content')
+@extends('layouts.app')
+@section('content')
     <div class="columns">
         @include('depSideBar')
         <div class="column">
@@ -131,9 +132,21 @@
                             </div>
                         @endforeach
                     @endif
-                    <div class="field">
-                        <input type="submit" name="submit" value="Submit">
+                    <div class="field is-grouped">
+                        <div class="control">
+                            <button class="button is-primary" type="submit" name="submit">
+                                Edit
+                            </button>
+                        </div>
+                        <div class="control">
+                            <button class="button is-danger"
+                                    data-url="{{ route('admin.departments.destroy',['id' => $dep->id]) }}"
+                                    data-redirect-url="{{ route('admin.createDep') }}"
+                                    id="delete-dep">Delete
+                            </button>
+                        </div>
                     </div>
+
                 </form>
             </div>
         </div>
@@ -173,6 +186,25 @@
                     var id = $(this).attr('id');
                     $.get('/admin/delete_course/' + id, function () {
                         $('#' + id + 'course').remove();
+                    });
+                }
+            });
+
+            let delete_dep_element = $('#delete-dep');
+            delete_dep_element.on('click', function (e) {
+                e.preventDefault();
+                let url = delete_dep_element.attr('data-url');
+                let redirect_url = delete_dep_element.attr('data-redirect-url');
+                if (confirm('Are you sure to delete this ? All data related will be deleted')) {
+                    window.axios({
+                        method: 'delete',
+                        url: url,
+                        responseType: 'application/json'
+                    }).then((response) => {
+                        alert(response.data.message);
+                        window.location.replace(redirect_url);
+                    }).catch((error) => {
+                        console.log(error.response.message);
                     });
                 }
             });
