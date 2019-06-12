@@ -37,7 +37,7 @@
                 <div class="column align_right content">
                     <span class="float_right">V</span>
                     <h4 class="align_right">ision</h4>
-                    <p class="align_right">{!! $dep->vision !!}}</p>
+                    <p class="align_right">{!! $dep->vision !!}</p>
                 </div>
                 <div class="column is-2 bg_black"></div>
             </div>
@@ -270,10 +270,11 @@
             justify-content: flex-start;
             color: #eee;
             @if(!isset($dep->img_dir))
-          background-image: url('/../civil.png') !important;
+           background-image: url('/../civil.png') !important;
             @else
-          background-image: url("{{ asset("uploads/".$dep->img_dir) }}");
+           background-image: url("{{ asset("uploads/".$dep->img_dir) }}");
         @endif
+
 
 
 
@@ -402,17 +403,9 @@
             overflow-y: scroll;
         }
 
-        {
-        {
-            -- offered_degrees --
-        }
-        }
+        /*Offered degrees*/
 
-        {
-        {
-            -- research Facilities --
-        }
-        }
+        /*** research Facilities **/
 
         .research_facilities,
         .offered_degrees,
